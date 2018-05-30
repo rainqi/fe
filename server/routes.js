@@ -19,7 +19,7 @@ module.exports = (app) => {
     res.render('calculator.html', parseQuery(req.query, {}));
   });
 
-	app.get('/series-selector.html', (req, res) => {
+	app.get('/selector.html', (req, res) => {
 		res.render('series-selector.html', parseQuery(req.query, {}));
 	});
 

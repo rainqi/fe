@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!-- MODEL SELECT START -->
+    <div data-url="/data/calculator"
+         data-component="series-selector"
+         data-to="subSeries"
+         data-from=""
+         data-type="series"
+         data-texts='{
+            "select": "请选择车系"
+         }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+            <div class="modelselect__selector-input" >
+              <div class="dropdown dropdown-cars" model-select-wrap>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  <!-- MODEL SELECT end -->
+
+    <div data-url="/data/calculator"
+         data-type="subSeries"
+         data-to="model"
+         data-from="subSeries"
+         data-component="series-selector"
+         data-texts='{
+                "select": "请选择车型"
+             }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-url="/data/calculator"
+         data-type="model"
+         data-to=""
+         data-from="model"
+         data-component="series-selector"
+         data-texts='{
+                    "select": "请选择型号"
+                 }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div data-url="/data/calculator"
+       data-type="loans"
+       data-component="series-selector"
+       data-texts='{
+                      "select": "贷款计划"
+                   }'
+       model-select>
+    <div class="modelselect">
+      <div class="modelselect__selector">
+        <div class="modelselect__selector-input" >
+          <div class="dropdown dropdown-cars" model-select-wrap>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calculator__note" calcultor-note>
+      贷款说明
+    </div>
+  </div>
+
+  <div data-url="/data/calculator"
+       data-type="loans"
+       data-component="series-selector"
+       data-texts='{
+                        "select": "贷款计划"
+                     }'
+       model-select>
+    <div class="modelselect">
+      <div class="modelselect__selector">
+        <div class="modelselect__selector-input" >
+          <div class="dropdown dropdown-cars" model-select-wrap>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calculator__note" calcultor-note>
+      贷款说明
+    </div>
+  </div>
+
+{% endblock %}

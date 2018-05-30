@@ -1,0 +1,237 @@
+.calculator {
+  background: $color-white;
+  margin: 5rem auto;
+  width: 100%;
+  max-width: $screen-tablet;
+
+  &__intro {
+    margin: 0 auto;
+    text-align: center;
+    &--title {
+      color: $color-grey;
+      font-size: 4rem;
+      line-height: 5rem;
+      letter-spacing: .2rem;
+    }
+    &--desc {
+      color: $color-grey-1;
+      font-size: 1.5rem;
+      line-height: 2.4rem;
+      max-width: 20rem;
+      margin: 0 auto;
+    }
+  }
+
+  &__content {
+    margin: 2rem auto;
+    text-align: center;
+    &--title {
+      margin: 1rem auto;
+      max-width: 21rem;
+      color: $color-grey;
+      font-weight: bold;
+      font-size: 2rem;
+      line-height: 3.2rem;
+      letter-spacing: .2rem;
+    }
+  }
+
+  .calculator__container {
+    display: flex;
+  }
+  .calculator__wrapper {
+    width: 50%;
+    text-align: center;
+
+  }
+  [data-component="series-selector"] {
+    display: block;
+    min-width: 13rem;
+    max-width: 16rem;
+    margin: 1rem auto;
+    min-height: 5rem;
+  }
+
+  hr {
+    margin: 4rem auto;
+    width: 80%;
+  }
+
+  &__cars {
+    margin: 1rem auto 0;
+    color: $color-grey;
+    &--title {
+      font-size: 1.5rem;
+      line-height: 2.4rem;
+      color: $color-grey;
+      margin-bottom: .5rem;
+    }
+    &--price {
+      font-size: 3rem;
+      line-height: 3.6rem;
+      height: 3.6rem;
+    }
+    &--image {
+      width: 90%;
+      margin: 1rem auto;
+      img{
+        width: 100%;
+      }
+    }
+    &--serires, &--model, &--type {
+      font-size: 1.8rem;
+      line-height: 2rem;
+      margin-top: 1rem;
+      height: 3rem;
+    }
+  }
+
+  &__note {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: $color-grey-light;
+    text-align: center;
+  }
+
+  &__result {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: $color-grey;
+    min-width: 13rem;
+    max-width: 16rem;
+    margin: 2rem auto;
+    text-align: left;
+    color: $color-grey-1;
+    min-height: 5.6rem;
+    & > div {
+      font-size: 2.2rem;
+      line-height: 2.4rem;
+    }
+    &[purchase-tax] {
+      min-height: 8rem;
+    }
+    &.calculator__insurance {
+      min-height: 1.5rem;
+    }
+    span {
+      font-size:1.2rem;
+      position: relative;
+      top: -0.5rem;
+    }
+    i {
+      color: $color-blue;
+      position: relative;
+      top: .3rem;
+      left: .4rem;
+      cursor: pointer;
+      &.icon-radio-checked {
+        font-size: 1.8rem;
+        left: 5rem;
+      }
+      &.icon-info {
+        span {
+          position: absolute;
+          left: -100px;
+          top: 10px;
+          display: block;
+          overflow: hidden;
+          max-height: 0;
+          text-align: center;
+          -webkit-transition: max-height .3s linear;
+          -moz-transition: max-height .3s linear;
+          -o-transition: max-height .3s linear;
+          transition: max-height .3s linear;
+          z-index: 2;
+          em {
+            position: relative;
+            display: block;
+            line-height: 1.6rem;
+            padding: 1rem;
+            font-style: normal;
+            color: $color-grey-1;
+            text-shadow: 0 0 0 $color-white;
+            margin-top: 10px;
+            border: 2px solid rgba(255,255,255,.9);
+            background-color: $color-grey-light-2;
+            z-index: 3;
+            width: 30rem;
+          }
+        }
+        &:hover {
+          color: $color-grey;
+          text-decoration: none;
+          background-image: -webkit-linear-gradient(top,$color-grey-light-4,$color-grey-light-3);
+          background-image: -moz-linear-gradient(top,$color-grey-light-4,$color-grey-light-3);
+          background-image: -o-linear-gradient(top,$color-grey-light-4,$color-grey-light-3);
+          background-image: linear-gradient(top,$color-grey-light-4,$color-grey-light-3);
+          span {
+            max-height: 14rem;
+          }
+        }
+      }
+    }
+  }
+  &__downPayment {
+    margin: 3rem auto;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    & > div {
+      font-size: 2.6rem;
+      line-height: 3rem;
+    }
+  }
+
+
+  &__left {
+    margin: 2rem 0;
+    .modelselect__selector .dropdown-cars {
+      text-align: left;
+      .btn-select, .list-cars li.modelselect--header ,.list-cars li.list-cars-item {
+        text-align: left;
+      }
+      .btn-select {
+        &.modelselect--selected {
+          text-align: left;
+        }
+        &:after {
+          position: absolute;
+          left: 92%;
+          top: 1rem;
+        }
+      }
+
+    }
+    .modelselect__selector .dropdown-cars.open {
+      .btn-select, .list-cars li.modelselect--header ,.list-cars li.list-cars-item {
+        padding-left: .5rem;
+      }
+      .btn-select {
+
+      }
+    }
+
+  }
+  &__btn {
+    background-color: $color-blue;
+    width: 60%;
+    height: 3rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding: .2rem 2rem;
+    line-height: 3rem;
+    display: inline-block;
+    color:$color-white;
+    text-decoration: none;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  &__clear {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: $color-grey-light;
+    cursor: pointer;
+  }
+}

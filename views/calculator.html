@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div data-component="calculator"
+       data-url="/data/calculator"
+        data-currency="¥">
+    <div data-url="/data/calculator"
+         data-component="series-selector"
+         data-to="subSeries"
+         data-from=""
+         data-type="series"
+         data-texts='{
+                 "select": "请选择车系"
+              }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-url="/data/calculator"
+         data-type="subSeries"
+         data-to="model"
+         data-from="subSeries"
+         data-component="series-selector"
+         data-texts='{
+                "select": "请选择车型"
+             }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-url="/data/calculator"
+         data-type="model"
+         data-to=""
+         data-from="model"
+         data-component="series-selector"
+         data-texts='{
+                    "select": "请选择型号"
+                 }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calculator__cars">
+      <p class="calculator__cars--title">
+        市场指导价
+      </p>
+      <div class="calculator__cars--price" cars-price></div>
+      <div class="calculator__cars--image" cars-image></div>
+      <div class="calculator__cars--serires" cars-series></div>
+      <div class="calculator__cars--type" cars-type></div>
+      <div class="calculator__cars--model" cars-model></div>
+    </div>
+
+    <div data-url="/data/calculator"
+         data-type="loans"
+         data-to=""
+         data-from=""
+         data-note=true
+         data-component="series-selector"
+         data-texts='{
+                    "select": "贷款计划"
+                 }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="calculator__note" calcultor-note>
+        贷款说明
+      </div>
+    </div>
+
+    <div class="calcultor__monthly-payment" monthly-payment>
+
+    </div>
+
+    <div data-url="/data/calculator"
+         data-type="terms"
+         data-to=""
+         data-from=""
+         data-note=""
+         data-component="series-selector"
+         data-texts='{
+                    "select": "贷款期限"
+                 }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-url="/data/calculator"
+         data-type="downpayment"
+         data-to=""
+         data-from=""
+         data-note=""
+         data-component="series-selector"
+         data-texts='{
+                    "select": "首付比例"
+                 }'
+         model-select>
+      <div class="modelselect">
+        <div class="modelselect__selector">
+          <div class="modelselect__selector-input" >
+            <div class="dropdown dropdown-cars" model-select-wrap>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calcultor__result" down-payment>
+
+    </div>
+    <div class="calcultor__result" monthly-payment>
+
+    </div>
+    <div class="calcultor__result" final-payment>
+
+    </div>
+    <div class="calcultor__result" apr-rate>
+
+    </div>
+    <div class="calcultor__result--insurance">
+      <i class="icon-info"></i>
+    </div>
+  </div>
+{% endblock %}

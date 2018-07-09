@@ -48,6 +48,7 @@ gulp.task('watch', () => {
     watchFiles.push(path.join(dirs.root, `template/${theme}/sass/*.scss`));
     watchFiles.push(path.join(dirs.root, `template/${theme}/sass/**/*.scss`));
     watchFiles.push(path.join(dirs.root, `template/${theme}/sass/**/**/*.scss`));
+    watchFiles.push(path.join(dirs.root, `template/${theme}/lang/sass/*.scss`));
   });
 
   gulp.watch(watchFiles, ['sass-dev', 'sass-lang']);
@@ -99,6 +100,14 @@ gulp.task('validate-eslint', () => {
       }
     }))
     .pipe(eslint.failAfterError());
+});
+
+// minify js
+gulp.task('minify-js', () => {
+  gutil.log(`::::: Gulp Task is going to minify js in ${dirs.component}/base/js/*.js):::::`);
+  return gulp.src([path.join(dirs.component, 'base/js/*.js')])
+    .pipe(uglify())
+    .pipe(gulp.dest(`${dirs.component}/base/js/`));
 });
 
 // Compile base js

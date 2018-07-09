@@ -3,5 +3,3 @@ Define Environment Variable
 
 variables:
 SERVER_ENV = local // local , dev (with auth)
-SERVER_AUTH_USERNAME =
-SERVER_AUTH_PASSWORD =

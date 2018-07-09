@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const queryDefault = {
-  theme: 'base',
+  theme: 'base',  // [base, ...]
   locale: 'en_US', // [en_US, ...]
   hasLogin: false, // [true, false]
 };
@@ -15,22 +15,19 @@ module.exports = (app) => {
     res.render('index');
   });
 
-  app.get('/calculator.html', (req, res) => {
-    res.render('calculator.html', parseQuery(req.query, {}));
-  });
 
-	app.get('/selector.html', (req, res) => {
-		res.render('series-selector.html', parseQuery(req.query, {}));
+	app.get('/demo.html', (req, res) => {
+		res.render('demo.html', parseQuery(req.query, {}));
 	});
+
+  app.get('/styles.html', (req, res) => {
+    res.render('styles.html', parseQuery(req.query, {}));
+  });
 
 
 	/* dummy data routing */
 
-  app.get('/data/calculator', (req, res) => {
-    res.send(require('./data/calculator'));
-  });
-
-	app.get('/data/selector', (req, res) => {
-		res.send(require('./data/selector'));
+	app.get('/data/demo', (req, res) => {
+		res.send(require('./data/demo'));
 	});
 };

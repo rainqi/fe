@@ -1,7 +1,7 @@
 {
-  "name": "Base framework",
+  "name": "Style-guide",
   "version": "1.0.0",
-  "description": "",
+  "description": "style guide",
   "main": "",
   "author": "",
   "license": "ISC",
@@ -52,6 +52,7 @@
     ]
   },
   "dependencies": {
+    "dress-code": "^2.4.0",
     "gulp": "^3.9.1",
     "promise-polyfill": "^6.0.2"
   }

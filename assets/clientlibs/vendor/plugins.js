@@ -3,6 +3,4 @@ module.exports = [
   'modernizr/detectizr.2.2.0.js',
   'jQuery/jquery-3.2.1.min.js',
 	'velocity/js/velocity.min.js',
-	'bootstrap/dropdown.js',
-	'iscroll/iscroll.js',
 ];

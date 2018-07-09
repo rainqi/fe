@@ -1,5 +1,5 @@
-/* Tue May 22 2018 10:41:54 GMT+0800 (CST) */
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/* Mon Jul 09 2018 15:38:09 GMT+0800 (CST) */
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -8,104 +8,74 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utils = require('../../../../clientlibs/utilities/utils');
-
-var libs = _interopRequireWildcard(_utils);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+var _device = require('../../../../clientlibs/utilities/device');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var calculator = function () {
-	function calculator(el) {
-		_classCallCheck(this, calculator);
+var breakPoint = function () {
+	function breakPoint(el) {
+		_classCallCheck(this, breakPoint);
 
 		this.props(el);
+		this.init();
 		this.events();
-		this.initData();
 	}
 
-	_createClass(calculator, [{
+	_createClass(breakPoint, [{
 		key: 'props',
 		value: function props(el) {
 			this.el = $(el);
-			this.options = $.extend({}, this.el.data());
-			this.carsImage = $('[cars-image]', this.el);
-			this.carsSeries = $('[cars-series]', this.el);
-			this.carsType = $('[cars-type]', this.el);
-			this.carsModel = $('[cars-model]', this.el);
-			this.carsPrice = $('[cars-price]', this.el);
+			this.options = this.el.data();
+			this.classNames = {
+				demoClass: 'sg__header--large'
+			};
+		}
+	}, {
+		key: 'init',
+		value: function init() {
+			console.log('init');
 		}
 	}, {
 		key: 'events',
-		value: function events() {}
-	}, {
-		key: 'initData',
-		value: function initData() {
-			var _this = this;
-
-			var onError = function onError(res) {
-				console.log("error");
-			};
-
-			$.ajax({
-				url: this.el.data('url'),
-				data: {},
-				method: 'GET',
-				dataType: 'JSON',
-				success: function success(res) {
-					_this.successFn(res);
-				},
-				error: onError
-			});
+		value: function events() {
+			this.setBreakpointsState();
 		}
 	}, {
-		key: 'successFn',
-		value: function successFn(res) {
-			var $data = res && res.data && res.data.series ? res.data.series : "";
-			var $series = $data.length ? $data[0].name : '';
-			var $type = $data[0].subseries.length ? $data[0].subseries[0].name : '';
-			var $image = $data[0].subseries.length ? $data[0].subseries[0].image : '';
-			var $model = $data[0].subseries[0].model[0] ? $data[0].subseries[0].model[0].name : '';
-			var $price = $data[0].subseries[0].model[0] ? $data[0].subseries[0].model[0].value : '';
-			$price = new Number($price);
-			if (this.carsImage.length && $image) {
-				this.carsImage.html('<img src="' + $image + '"></img>');
+		key: 'setBreakpointsState',
+		value: function setBreakpointsState() {
+			var root = document.querySelector('html');
+
+			// Set initial state
+			if (localStorage.getItem("breakpoints") !== "shown") {
+				root.classList.remove('sg-is-show-breakpoints');
 			}
-			if (this.carsSeries.length && $series) {
-				this.carsSeries.html($series.replace(/<[^>]+>/g, ''));
+
+			// Breakpoint toggle
+			var bpToggle = document.querySelectorAll('.js-toggle-breakpoints');
+
+			for (var i = 0; i < bpToggle.length; i++) {
+				bpToggle[i].addEventListener('click', function (e) {
+					e.preventDefault();
+
+					if (root.classList.contains("sg-is-show-breakpoints")) {
+						localStorage.removeItem("breakpoints");
+						root.classList.remove('sg-is-show-breakpoints');
+					} else {
+						localStorage.setItem("breakpoints", "shown");
+						root.classList.add('sg-is-show-breakpoints');
+					}
+				});
 			}
-			if (this.carsType.length && $type) {
-				this.carsType.html($type.replace(/<[^>]+>/g, ''));
-			}
-			if (this.carsModel.length && $model) {
-				this.carsModel.html($model.replace(/<[^>]+>/g, ''));
-			}
-			if (this.carsPrice.length && $price) {
-				this.carsPrice.html(libs.formatPriceWithCurrency(this.options.currency, $price.toLocaleString()));
-			}
+			return this;
 		}
 	}]);
 
-	return calculator;
+	return breakPoint;
 }();
 
-exports.default = calculator;
+exports.default = breakPoint;
 
-},{"../../../../clientlibs/utilities/utils":6}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-				value: true
-});
-
-exports.default = function (props, option, isInit) {
-				return '\n\t\t<div tabindex="0" class="dropdown-menu list-cars">\n\t    <ul class=" ">\n\t      ' + (props && props.length && isInit ? props.map(function (item, index) {
-								return '\n\t        <li\n\t          class="list-cars-item" data-index="' + index + '" data-img="' + (item.image ? item.image : '') + '" type="' + (item.type ? item.type : '') + '" data-note="' + (item.note ? item.note : '') + '" \n\t          data-value="' + (item.value ? item.value : '') + '" \n\t          data-name="' + item.name + '">\n\t          <a href="javascript:void(0);" data-index="' + index + '" data-img="' + (item.image ? item.image : '') + '" data-note="' + (item.note ? item.note : '') + '" \n\t          data-value="' + (item.value ? item.value : '') + '" data-name="' + item.name + '" >' + item.name + '</a>\n\t        </li>\n\t      ';
-				}).join("") : '') + '\n\t    </ul>\n\t  </div>\n\t  <button\n\t    class="dropdown-toggle btn-select" \n\t    type="button" \n\t    data-toggle="dropdown"\n\t    model-select-btn\n\t  >\n\t    ' + option.select + '\n\t  </button>\n';
-};
-
-},{}],3:[function(require,module,exports){
+},{"../../../../clientlibs/utilities/device":5}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -120,9 +90,9 @@ var _utils = require('../../../../clientlibs/utilities/utils');
 
 var libs = _interopRequireWildcard(_utils);
 
-var _renderOptions = require('./render-options');
+var _render = require('./render');
 
-var _renderOptions2 = _interopRequireDefault(_renderOptions);
+var _render2 = _interopRequireDefault(_render);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -130,235 +100,66 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var seriesSelector = function () {
-	function seriesSelector(el) {
-		_classCallCheck(this, seriesSelector);
+var demo = function () {
+	function demo(el) {
+		_classCallCheck(this, demo);
 
 		this.props(el);
+		this.init();
 		this.events();
-		this.loadData();
 	}
 
-	_createClass(seriesSelector, [{
+	_createClass(demo, [{
 		key: 'props',
 		value: function props(el) {
 			this.el = $(el);
 			this.options = this.el.data();
-			this.$modelselectWrap = $('[model-select-wrap]', this.el);
-			this.$modelSelectorBtn = $('[model-select-btn]', this.el);
-			this.$note = $('[calcultor-note]', this.el);
-			this.currency = '¥';
 			this.classNames = {
-				selected: 'modelselect--selected'
+				demoClass: 'sg__header--large'
 			};
-			this.data = null;
-			this.$carsType = this.el.closest('.calculator__wrapper').find("[cars-type]");
-			this.$carsSereis = this.el.closest('.calculator__wrapper').find("[cars-series]");
-			this.$carsPrice = this.el.closest('.calculator__wrapper').find("[cars-price]");
-			this.$carsImage = this.el.closest('.calculator__wrapper').find("[cars-image]");
-			this.$carsMode = this.el.closest('.calculator__wrapper').find("[cars-model]");
-			this.$clearBtn = this.el.closest('.calculator__wrapper').find("[btn-clear]");
 		}
-		// init isScroll
-
 	}, {
 		key: 'init',
-		value: function init(isInit) {
-			if (isInit) {
-				var $listCars = $('.list-cars', this.el);
-				$listCars.data('iscroll', (0, _device.isMobile)() ? {
-					refresh: $.noop,
-					scrollTo: function scrollTo() {
-						var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-						var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-						var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
-
-						$listCars.animate({
-							scrollTop: y
-						}, time);
-					}
-				} : new IScroll($listCars.get(0), {
-					mouseWheel: true,
-					interactiveScrollbars: (0, _device.isDesktop)() || (0, _device.isBrowser)('ie'),
-					scrollbars: 'custom',
-					keyBindings: true,
-					HWCompositing: false,
-					tap: true
-				}));
-
-				$('.dropdown-toggle', this.el).dropdown();
-			}
+		value: function init() {
+			console.log('this is a initial function,', ' init()');
 		}
 	}, {
 		key: 'events',
 		value: function events() {
-			var _this = this;
-
-			var namespace = 'modelselect';
-			var clickEvent = 'click.' + namespace;
-			var tapEvent = 'tap.' + namespace;
-			var clickItemEvent = (0, _device.isIOS)() && (0, _device.isTablet)() ? tapEvent : clickEvent;
-
-			$('.dropdown-cars', this.el).on('shown.bs.dropdown', function () {
-				var $listCars = _this.el.find('.list-cars');
-
-				var iScrollInstance = $listCars.data('iscroll');
-				if (iScrollInstance) {
-					iScrollInstance.refresh();
-					iScrollInstance.scrollTo(0, 0, 200);
-				}
-
-				$('.dropdown-bikes', _this.el).off(clickEvent).on(clickEvent, function (ev) {
-					_this.handlerClickDropdown(ev);
-				});
-				$('li', $listCars).off(clickItemEvent).on(clickItemEvent, function (ev) {
-					_this.handlerClickDropdownItem(ev);
-				});
-			}).on('hidden.bs.dropdown', function () {
-				if (!(0, _device.isMobile)()) {
-					return false;
-				}
-			});
-
-			this.$clearBtn.off("click").on("click", function (ev) {
-				console.log(ev.target);
-			});
-		}
-	}, {
-		key: 'loadData',
-		value: function loadData() {
-			var _this2 = this;
-
-			var onError = function onError(res) {
-				console.log("error");
-			};
-
-			$.ajax({
-				url: this.el.data('url'),
-				data: {},
-				method: 'GET',
-				dataType: 'JSON',
-				success: function success(res) {
-					_this2.successFn(res, _this2.options.from);
-				},
-				error: onError
-			});
-		}
-		// init data
-
-	}, {
-		key: 'populateSelect',
-		value: function populateSelect(item, data, options) {
-			var isInit = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
-
-			item.html((0, _renderOptions2.default)(data, options, isInit));
-			this.init(isInit);
-		}
-		// ajax success callback
-
-	}, {
-		key: 'successFn',
-		value: function successFn(res) {
-			this.data = res.data;
-			var data = res.data[this.options.type];
-			this.populateSelect(this.$modelselectWrap, data, this.options.texts, !this.options.from);
-		}
-
-		// handler button click events
-
-	}, {
-		key: 'handlerClickDropdown',
-		value: function handlerClickDropdown(ev) {
-			ev.preventDefault();
-			ev.stopPropagation();
-			var $target = $(ev.currentTarget);
-			this.$modelSelectorBtn = $('[model-select-btn]', this.el);
-			this.$modelSelectorBtn.html($target.html());
-			this.$modelSelectorBtn.addClass(this.classNames.selected);
-			this.$modelSelectorBtn.dropdown('toggle');
-			this.$modelSelectorBtn.blur();
-		}
-
-		// handler options click events
-
-	}, {
-		key: 'handlerClickDropdownItem',
-		value: function handlerClickDropdownItem(ev) {
-			var $target = $(ev.currentTarget);
-			var $index = $target.data('index');
-			var $name = $target.data('name');
-			var $value = $target.data('value');
-			var $image = $target.data('img');
-
-			this.handlerClickDropdown(ev);
-			if (this.options.type === 'series') {
-				this.populatesubseries($index, this.options.to);
-				this.$carsSereis.html($name);
-				this.$carsType.html('');
-				this.$carsPrice.html('');
-				this.$carsMode.html('');
-			}
-			if (this.options.type === 'subSeries') {
-				var $parentIndex = $('[data-to=\'' + this.options.from + '\']').find('button a').data('index');
-				this.populateModel($index, $parentIndex, this.options.to);
-				if ($image.length) {
-					this.$carsImage.html('<img src="' + $image + '"></img>');
-				}
-				this.$carsType.html($name);
-			}
-			if (this.options.type === 'model') {
-				this.$carsMode.html($name);
-				this.$carsPrice.html(libs.formatPriceWithCurrency(this.currency, $value.toLocaleString()));
-			}
-			if (this.options.type === 'loans' && this.$note.length) {
-				var $note = $target.data('note');
-				this.$note.html($note);
-			}
-		}
-		// set the second level data
-
-	}, {
-		key: 'populatesubseries',
-		value: function populatesubseries(index, dataTo) {
-			var $subSeriesData = this.data.series[index].subseries;
-			var item = $('[data-from=\'' + dataTo + '\']').find('[model-select-wrap]');
-			if (item.length) {
-				this.populateSelect(item, $subSeriesData, this.options.texts, true);
-			}
-		}
-
-		// set the third level data
-
-	}, {
-		key: 'populateModel',
-		value: function populateModel(index, parentIndex, dataTo) {
-			var $modelData = this.data.series[parentIndex].subseries[index].model;
-			var item = $('[data-from=\'' + dataTo + '\']').find('[model-select-wrap]');
-			if (item.length) {
-				this.populateSelect(item, $modelData, this.options.texts, true);
-			}
+			console.log('this is a event function,', ' events()');
 		}
 	}]);
 
-	return seriesSelector;
+	return demo;
 }();
 
-exports.default = seriesSelector;
+exports.default = demo;
 
-},{"../../../../clientlibs/utilities/device":5,"../../../../clientlibs/utilities/utils":6,"./render-options":2}],4:[function(require,module,exports){
+},{"../../../../clientlibs/utilities/device":5,"../../../../clientlibs/utilities/utils":6,"./render":3}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function (props) {
+  return "\n\n";
+};
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 var _promisePolyfill = require('promise-polyfill');
 
 var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
 
-var _calculator = require('../../../component/calculator/es6/calculator');
+var _demo = require('../../../component/demo/es6/demo');
 
-var _calculator2 = _interopRequireDefault(_calculator);
+var _demo2 = _interopRequireDefault(_demo);
 
-var _seriesSelector = require('../../../component/series-selector/es6/series-selector');
+var _breakPoint = require('../../../component/breakPoint/es6/breakPoint');
 
-var _seriesSelector2 = _interopRequireDefault(_seriesSelector);
+var _breakPoint2 = _interopRequireDefault(_breakPoint);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -367,8 +168,8 @@ if (!window.Promise) {
 }
 
 var components = {
-  'calculator': _calculator2.default,
-  'series-selector': _seriesSelector2.default
+  'demo-component': _demo2.default,
+  'breakPoint': _breakPoint2.default
 };
 
 $(function () {
@@ -382,7 +183,7 @@ $(function () {
   });
 });
 
-},{"../../../component/calculator/es6/calculator":1,"../../../component/series-selector/es6/series-selector":3,"promise-polyfill":7}],5:[function(require,module,exports){
+},{"../../../component/breakPoint/es6/breakPoint":1,"../../../component/demo/es6/demo":2,"promise-polyfill":8}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -486,6 +287,193 @@ function formatPriceWithCurrency(currency, price) {
 }
 
 },{}],7:[function(require,module,exports){
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+},{}],8:[function(require,module,exports){
+(function (setImmediate){
 (function (root) {
 
   // Store setTimeout reference so promise-polyfill will be unaffected by
@@ -720,4 +708,84 @@ function formatPriceWithCurrency(currency, price) {
 
 })(this);
 
-},{}]},{},[4]);
+}).call(this,require("timers").setImmediate)
+},{"timers":9}],9:[function(require,module,exports){
+(function (setImmediate,clearImmediate){
+var nextTick = require('process/browser.js').nextTick;
+var apply = Function.prototype.apply;
+var slice = Array.prototype.slice;
+var immediateIds = {};
+var nextImmediateId = 0;
+
+// DOM APIs, for completeness
+
+exports.setTimeout = function() {
+  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+};
+exports.setInterval = function() {
+  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+};
+exports.clearTimeout =
+exports.clearInterval = function(timeout) { timeout.close(); };
+
+function Timeout(id, clearFn) {
+  this._id = id;
+  this._clearFn = clearFn;
+}
+Timeout.prototype.unref = Timeout.prototype.ref = function() {};
+Timeout.prototype.close = function() {
+  this._clearFn.call(window, this._id);
+};
+
+// Does not start the time, just sets up the members needed.
+exports.enroll = function(item, msecs) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = msecs;
+};
+
+exports.unenroll = function(item) {
+  clearTimeout(item._idleTimeoutId);
+  item._idleTimeout = -1;
+};
+
+exports._unrefActive = exports.active = function(item) {
+  clearTimeout(item._idleTimeoutId);
+
+  var msecs = item._idleTimeout;
+  if (msecs >= 0) {
+    item._idleTimeoutId = setTimeout(function onTimeout() {
+      if (item._onTimeout)
+        item._onTimeout();
+    }, msecs);
+  }
+};
+
+// That's not how node.js implements it but the exposed api is the same.
+exports.setImmediate = typeof setImmediate === "function" ? setImmediate : function(fn) {
+  var id = nextImmediateId++;
+  var args = arguments.length < 2 ? false : slice.call(arguments, 1);
+
+  immediateIds[id] = true;
+
+  nextTick(function onNextTick() {
+    if (immediateIds[id]) {
+      // fn.call() is faster so we optimize for the common use-case
+      // @see http://jsperf.com/call-apply-segu
+      if (args) {
+        fn.apply(null, args);
+      } else {
+        fn.call(null);
+      }
+      // Prevent ids from leaking
+      exports.clearImmediate(id);
+    }
+  });
+
+  return id;
+};
+
+exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function(id) {
+  delete immediateIds[id];
+};
+}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
+},{"process/browser.js":7,"timers":9}]},{},[4]);

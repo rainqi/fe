@@ -5,7 +5,7 @@
 @import 'functions';
 
 /* third party */
-@import 'dropdowns';
+@import 'vendor/fabricator/fabricator';
 
 /* module */
 @import 'global';
@@ -13,5 +13,4 @@
 @import 'reset';
 
 /* css components */
-@import '../../../component/calculator/sass/calculator';
-@import '../../../component/series-selector/sass/series-selector';
+@import '../../../component/demo/sass/demo';

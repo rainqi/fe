@@ -1,14 +1,14 @@
 import Promise from 'promise-polyfill';
-import calculator from '../../../component/calculator/es6/calculator';
-import seriesSelector from '../../../component/series-selector/es6/series-selector';
+import demoComponent from '../../../component/demo/es6/demo';
+import breakpoints from '../../../component/breakPoint/es6/breakPoint';
 
 if (!window.Promise) {
   window.Promise = Promise;
 }
 
 const components = {
-	'calculator': calculator,
-  'series-selector': seriesSelector
+  'demo-component': demoComponent,
+  'breakPoint': breakpoints
 };
 
 $(() => {

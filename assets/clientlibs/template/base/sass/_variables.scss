@@ -2,34 +2,13 @@
 // Colors
 // --------------------------------------------------
 
-$color-blue          : #0b6fff !default;
-$color-grey          : #444444;
-$color-grey-1        : #333333;
-$color-grey-2        : #777777;
-$color-grey-3        : #7f7f7f;
-$color-grey-4        : #5f5f5f;
-$color-grey-5        : #848483;
-$color-grey-dark     : #202020;
-$color-grey-dark-1   : #242424;
-$color-grey-medium   : #494949;
-$color-grey-light    : #666666;
-$color-grey-light-1  : #a3a3a3;
-$color-grey-light-2  : #d8d8d8;
-$color-grey-light-3  : #ededed;
-$color-grey-light-4  : #dfdfdf;
-$color-grey-light-5  : #b7b7b7;
-$color-black         : #000000;
-$color-white         : #ffffff;
-$color-black-1       : #020202;
-$color-red           : #a8000a;
-$color-alabaster     : #f7f7f7;
-$color-transparent   : transparent;
-$color-error		 : #ad181f;
-$color-dusty-gray    : #9e9b9b;
-$color-alto          : #dfdfdf;
-$color-disabled-input: #ebebe4;
-$color-outline       : #4D90FE;
-$color-yellow        : #d8d809;
+$color-white               : #ffffff;
+$color-grey                : #d1d1d1;
+$color-light-grey          : #ededed;
+$color-link-blue           : #26aafe;
+$color-link-blue-over      : #1e87cb;
+$color-primary-blue        : #00ADEF;
+$color-black               : #000000;
 
 $root: '../../../..';
 
@@ -40,20 +19,7 @@ $brand-warning: #f0ad4e !default;
 $brand-danger: #d9534f !default;
 
 $font-size-base: 14px !default;
-$dropdown-bg: #fff !default;
-$dropdown-fallback-border: #ccc !default;
-$dropdown-border: rgba(0, 0, 0, .15) !default;
-$line-height-base: 1.428571429 !default;
-$dropdown-link-color: $color-grey-dark !default;
-$dropdown-link-hover-color: $color-grey-dark !default;
-$dropdown-link-hover-bg: $color-grey-4 !default;
-$dropdown-link-active-color: $color-grey-4 !default;
-$dropdown-link-active-bg: #428bca;
-$dropdown-link-disabled-color: $color-grey-light-1 !default;
 
-$cursor-disabled: not-allowed !default;
-$font-size-small: 12px;
-$dropdown-header-color: $color-grey-light-5;
 
 // Media queries breakpoints
 // --------------------------------------------------
@@ -76,32 +42,3 @@ $screen-lg-desktop: 1440px !default;
 $screen-small-tablet-max: ($screen-small-tablet - 1) !default;
 $screen-tablet-max: ($screen-tablet - 1) !default;
 $screen-desktop-max: ($screen-desktop - 1) !default;
-
-$padding-base-vertical: 6px !default;
-$padding-base-horizontal: 12px !default;
-
-$padding-large-vertical: 10px !default;
-$padding-large-horizontal: 16px !default;
-
-$padding-small-vertical: 5px !default;
-$padding-small-horizontal: 10px !default;
-
-$padding-xs-vertical: 1px !default;
-$padding-xs-horizontal: 5px !default;
-
-$line-height-large: 1.3333333 !default; // extra decimals for Win 8.1 Chrome
-$line-height-small: 1.5 !default;
-
-$border-radius-base: 4px !default;
-$border-radius-large: 6px !default;
-$border-radius-small: 3px !default;
-
-//** Global color for active items (e.g., navs or dropdowns).
-$component-active-color: #fff !default;
-//** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg: $brand-primary !default;
-
-//** Width of the `border` for generating carets that indicate dropdowns.
-$caret-width-base: 4px !default;
-//** Carets increase slightly in size for larger components.
-$caret-width-large: 5px !default;

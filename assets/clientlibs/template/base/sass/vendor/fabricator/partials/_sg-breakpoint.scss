@@ -1,0 +1,31 @@
+
+.sg-body--demo-breakpoints {
+    @include sg-debugmessage("Tiny \2014 0-319px", $color-primary-blue);
+
+    @media (min-width:$screen-phone) {
+        @include sg-debugmessage("Phone \2014 320-479px", $color-primary-blue);
+    }
+
+    @media (min-width:$screen-small-tablet) {
+        @include sg-debugmessage("Small tablet \2014 480-767px", $color-primary-blue);
+    }
+
+    @media (min-width:$screen-tablet) {
+        @include sg-debugmessage("Tablet \2014 768-991px", $color-primary-blue);
+    }
+
+    @media (min-width:$screen-desktop) {
+        @include sg-debugmessage("Desktop \2014 992px and 1439px", $color-primary-blue);
+    }
+
+    @media (min-width:$screen-lg-desktop) {
+        @include sg-debugmessage("Wide desktop \2014 1440px and up", $color-primary-blue);
+    }
+}
+
+.sg-is-show-breakpoints .sg-body--demo-breakpoints {
+    &::before {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+}

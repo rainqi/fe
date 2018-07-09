@@ -1,0 +1,12 @@
+//  = HEADER
+//  ---------------------------------------------------------------------------
+
+.f-header {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 0rem 1.2rem;
+    border-bottom: 1px solid $color-grey;
+    background: $color-white;
+    z-index: 900;
+}

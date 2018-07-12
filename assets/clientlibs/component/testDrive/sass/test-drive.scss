@@ -1,0 +1,124 @@
+.test-drive {
+
+    &--confirm {
+        &:not(.test-drive--embed) .section-header {
+            display: none;
+        }
+    }
+
+    &--embed {
+        .test-drive__result {
+            background-position: bottom center;
+            margin-top: 13px;
+
+            @media (min-width: $tablet) {
+                margin-top: 0px;
+                padding-bottom: 123px;
+            }
+        }
+
+        .test-drive__related {
+            display: none;
+        }
+
+        .test-drive__policy {
+            display: none;
+        }
+    }
+
+    &__section {
+        background: none;
+        padding-bottom: $space-8;
+
+        @media (min-width: $tablet) {
+            min-height: 468px;
+            padding-bottom: 0px;
+            background: url(/etc/designs/mb-cn/images/testdrivebg.jpg) no-repeat;
+            background-position: 510px top;
+
+            @include theme-amg() {
+                background-image: url(/etc/designs/mb-cn/images/testdrivebg-red.png);
+            }
+        }
+
+        @media (min-width: $desktop) {
+            background-position: right top;
+        }
+    }
+
+    &__form {
+        padding-top: 13px;
+        padding-bottom: $space-8;
+
+        @media (min-width: $tablet) {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            width: 300px;
+            min-height: 450px;
+        }
+    }
+
+    &__privacy {
+        color: $global-blue;
+        cursor: pointer;
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+    }
+
+    &__result {
+        padding-top: 16px;
+        padding-bottom: 1px;
+        background: linear-gradient(277deg, $white-light, $white-gray) no-repeat;
+        background-position: top center;
+        background-size: contain;
+
+        @include theme-amg() {
+            background-image: linear-gradient(277deg, $mine-shaft, $dove-gray);
+        }
+
+        @media (min-width: $tablet) {
+            padding-top: $space-6;
+            padding-bottom: 0px;
+            background-size: 100% 300px;
+        }
+    }
+
+    &__related {
+        display: none;
+
+        @media (min-width: $tablet) {
+            display: block;
+        }
+    }
+
+    &__policy {
+        display: none;
+        padding: $space-6 0px;
+        @include font-cn-default(13px,35px);
+        font-weight: normal;
+        color: $mine-shaft;
+
+        @include theme-amg() {
+            color: $white;
+        }
+
+        @media (min-width: $tablet) {
+            display: block;
+        }
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 48px;
+            height: 3px;
+            background: $mine-shaft;
+            margin-bottom: 13px;
+
+            @include theme-amg() {
+                background: $white;
+            }
+        }
+    }
+}

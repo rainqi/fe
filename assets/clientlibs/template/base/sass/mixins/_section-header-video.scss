@@ -7,11 +7,11 @@
     transform: translateX(-50%);
     width: 100%;
 
-    @include media($mobile-only){
+    @media (max-width: $mobile-only){
         display: none;
     }
 
-    @include media($width-large) {
+    @media (min-width: $width-large) {
         left: auto;
         transform: none;
         width: 100%;

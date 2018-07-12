@@ -1,0 +1,289 @@
+.section-header {
+  overflow: hidden;
+
+  &__subtitle {
+    color: $dove-gray;
+    position: relative;
+    overflow: hidden;
+    max-width: 940px;
+    text-align: center;
+    margin: 40px auto 12px;
+    span {
+      display: inline-block;
+      padding: 0 14px;
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+.test-drive {
+  &__section {
+    background: none;
+    padding-bottom: 40px;
+  }
+  .wrapper {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0 20px;
+  }
+  &__form {
+    padding-top: 13px;
+    padding-bottom: 40px;
+  }
+  .form-fieldset {
+    color: #333;
+    font: normal 500 13px/24px "PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei","SimHei",Helvetica,Arial,serif;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  .form-fieldset__legend {
+    color: $dove-gray;
+    width: 100%;
+  }
+
+  .form-fieldset__error {
+    margin-top: 10px;
+    display: none;
+    border: 1px solid $dark-red;
+    padding: 12px 20px;
+    background: $error-bg-red;
+  }
+
+  .form-input {
+    display: block;
+    margin: 20px 0px;
+  }
+  .form-input__input {
+    height: 40px;
+    width: 100%;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid $line-gray;
+    background: transparent;
+    color: #333;
+    font: normal 500 13px/24px "PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei","SimHei",Helvetica,Arial,serif;
+    font-weight: normal;
+    &:focus {
+      outline: thin solid transparent;
+    }
+  }
+  .form-radio {
+    @include form-item();
+
+    @media (max-width: $mobile-only) {
+        @include clearfix();
+    }
+
+    &__label {
+        padding-right: 80px;
+        font-size: 14px;
+
+        &:last-of-type {
+            padding-right: 0px;
+        }
+
+        @media (max-width: $mobile-only){
+            float: left;
+        }
+    }
+    &__input {
+        display: none;
+    }
+    &__fake {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        border: 1px solid gray;
+        position: relative;
+        border-radius: 50%;
+        margin-right: 10px;
+        vertical-align: top;
+        cursor: pointer;
+        top: 4px;
+    }
+    .form-radio__input:checked + .form-radio__fake {
+        border: 1px solid $global-blue;
+        @include theme-amg() {
+            border-color: $guardsman-red;
+        }
+        &:before {
+            content:'';
+            width: 6px;
+            height: 6px;
+            display: inline-block;
+            position: relative;
+            background: $global-blue;
+            margin-left: 4px;
+            vertical-align: top;
+            line-height: 6px;
+            margin-top: 4px;
+            // top: -7px;
+            border-radius: 50%;
+            @include theme-amg() {
+                background: $guardsman-red;
+            }
+        }
+    }
+  }
+  .form-checkbox {
+    @include form-item();
+    line-height: 20px;
+    cursor: pointer;
+
+    &__input {
+        display: none;
+    }
+
+    &__fake {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 1px solid $dove-gray;
+        vertical-align: top;
+        margin-top: 2px;
+        margin-right: 6px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .form-checkbox__input:checked + .form-checkbox__fake {
+        &::before {
+            @include icon($icon-check, 8px);
+            vertical-align: top;
+            line-height: 16px;
+        }
+    }
+
+    .form-fieldset__item-error + &__fake {
+        border-color: $dark-red !important;
+    }
+  }
+
+  .form-cta {
+    display: block;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    @include font-cn-default(14px, 40px);
+    font-weight: normal;
+    color: $white;
+    background: $global-blue;
+    cursor: pointer;
+
+    @include theme-amg() {
+        background: $guardsman-red;
+    }
+
+    @media (min-width: $tablet) {
+        display: inline-block;
+        width: 145px;
+        height: 50px;
+        line-height: 50px;
+    }
+}
+}
+
+.form-fieldset {
+    border-width: 0;
+    color: $mine-shaft;
+    @include font-cn-default(13px, 24px);
+    font-weight: normal;
+    margin-bottom: $space-4;
+
+    @include theme-amg() {
+        color: $white;
+    }
+
+    @media (min-width:$tablet) {
+        font-size: 14px;
+    }
+
+    &__legend {
+        color: $dove-gray;
+        width: 100%;
+
+        @media (min-width:$tablet) {
+            font-size: 14px;
+
+            @include theme-amg() {
+                color: $dusty-gray;
+            }
+        }
+    }
+
+    &__item-error {
+        border-color: $dark-red !important;
+    }
+
+    &__error {
+        margin-top: $space-2;
+        display: none;
+        border: 1px solid $dark-red;
+        padding: 12px $space-4;
+        background: $error-bg-red;
+
+        &--active {
+            display: block!important;
+        }
+    }
+
+    &__error-item {
+        display: block;
+        font-size: 12px;
+        color: $dark-red;
+    }
+}
+
+@media (min-width: $screen-tablet) {
+
+  .test-drive {
+    &__section {
+      min-height: 468px;
+      padding-bottom: 0px;
+    }
+    .wrapper {
+      width: -moz-calc(700/768 * 100%);
+      width: calc(700/768 * 100%);
+      margin: 0 auto;
+      margin: 0 auto;
+    }
+    &__form {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      width: 300px;
+      min-height: 450px;
+    }
+    .form-fieldset, .form-fieldset__legend, .form-input__input {
+      font-size: 14px;
+    }
+  }
+
+  .section-header {
+    &__subtitle {
+      margin-top: 60px;
+      margin-bottom: 40px;
+      span {
+        font: normal 400 36px/50px "SimSun",serif;
+        -webkit-transform: scaleX(0.7);
+        -moz-transform: scaleX(0.7);
+        -ms-transform: scaleX(0.7);
+        transform: scaleX(0.7);
+        -webkit-transform-origin: left;
+        -moz-transform-origin: left;
+        -ms-transform-origin: left;
+        transform-origin: left;
+        width: 142.857143%;
+        -webkit-transform-origin: center;
+        -moz-transform-origin: center;
+        -ms-transform-origin: center;
+        transform-origin: center;
+        max-width: 940px;
+        margin: auto;
+        width: auto;
+      }
+    }
+  }
+}

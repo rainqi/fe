@@ -13,7 +13,7 @@
         transform-origin: top;
         display: inline-block;
 
-        @include media($mobile-only){
+        @media (max-width:$mobile-only){
             height: 25px;
             top: 7px;
             left:0;

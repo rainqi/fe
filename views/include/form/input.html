@@ -1,28 +1,48 @@
 <section class="content-card">
   <div class="f-item-group" id="typography">
     <div class="f-item-heading-group" data-f-toggle="labels">
-      <h2 class="f-item-heading">Typography</h2>
-      {% include '../../layout/item-control.html' %}
+      <h2 class="f-item-heading">Form</h2>
     </div>
     <div class="f-item-notes" data-f-toggle="notes">
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam enim sunt sapiente molestias, sed dicta inventore consectetur beatae asperiores, aliquid laboriosam animi, praesentium repudiandae et, quam saepe sint cupiditate reiciendis.</p>
+       <p></p>
      </div>
      <div class="f-item-preview">
-       <h1>Heading Level 1</h1>
-       <h2>Heading Level 2</h2>
-       <h3>Heading Level 3</h3>
-       <h4>Heading Level 4</h4>
-       <h5>Heading Level 5</h5>
-       <h6>Heading Level 6</h6>
- 	  </div>
- 	  <div class="f-item-code" data-f-toggle="code">
- 	  	<pre><code class="language-markup">
-      &lt;h1&gt;Heading Level 1&lt;/h1&gt;
-      &lt;h2&gt;Heading Level 2&lt;/h2&gt;
-      &lt;h3&gt;Heading Level 3&lt;/h3&gt;
-      &lt;h4&gt;Heading Level 4&lt;/h4&gt;
-      &lt;h5&gt;Heading Level 5&lt;/h5&gt;
-      &lt;h6&gt;Heading Level 6&lt;/h6&gt;</code></pre>
+        <div class="test-drive">
+          <section class="test-drive" data-load-module="TestDrive" data-module-loaded="true">
+              <div class="test-drive__section">
+                  <div class="wrapper">
+                      <form class="test-drive__form">
+                          <fieldset class="form-fieldset">
+                              <legend class="form-fieldset__legend">欢迎您在线申请预约试驾，请在下方填写您的联络信息。</legend>
+                              <div class="form-fieldset__error form-fieldset__error--active"><a class="form-fieldset__error-item" href="#driveName">· 错误提示信息</a></div>
+                              <label for="driveName" class="form-input">
+                                  <input maxlength="30" id="driveName" name="familyName" type="text" class="form-input__input" placeholder="姓名" data-validate="isName" data-error="请输入正确的姓名（汉字或字母)">
+                              </label>
+                              <div class="form-radio">
+                                  <label class="form-radio__label" for="driveMale">
+                                      <input name="gender" id="driveMale" type="radio" value="Male" class="form-radio__input" checked="">
+                                      <span class="form-radio__fake"></span>先生
+                                  </label>
+                                  <label class="form-radio__label" for="driveFemale">
+                                      <input name="gender" id="driveFemale" type="radio" value="Female" class="form-radio__input">
+                                      <span class="form-radio__fake"></span>女士
+                                  </label>
+                              </div>
+                              <label for="driveCell" class="form-input">
+                                  <input maxlength="11" id="driveCell" name="mobilePhone" type="text" class="form-input__input" placeholder="手机号码" data-validate="isNotEmpty,isCell" data-error="请输入中国大陆手机号码（11位数字)">
+                              </label>
+                              <label for="driveCheck" class="form-checkbox">
+                                <input id="driveCheck" name="check" class="form-checkbox__input" type="checkbox" data-validate="isChecked" data-error="请阅读并接受隐私条款">
+                                <span class="form-checkbox__fake"></span>
+                                <span class="form-checkbox__text">我仔细阅读了并接受所附的 <a href="#" class="test-drive__privacy">隐私条款</a></span>
+                            </label>
+                          </fieldset>
+                          <button class="form-cta">申请试驾</button>
+                      </form>
+                  </div>
+              </div>
+          </section>
+        </div>
  	  </div>
   </div>
 </section>

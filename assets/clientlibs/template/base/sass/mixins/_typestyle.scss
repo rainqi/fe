@@ -94,11 +94,11 @@
 }
 
 @mixin hero-cn-font($size, $lineHeight) {
-    @include media($tablet){
+    @media (min-width: $tablet){
         $weight: $font-weight-regular;
         @include font-output($brand-cn-font-family, $weight, $size, $lineHeight, normal);
     }
-    @include media($mobile-only){
+    @media (max-width: $mobile-only){
         $weight: $font-weight-regular;
         @include font-output($default-cn-font-family, $weight, $size, $lineHeight, normal);
     }
@@ -291,7 +291,7 @@
             left: -600px;
             z-index: 1;
             top: 25px;
-            @include media($mobile-only){
+            @media (max-width: $mobile-only){
                 top:14px;
             }
         }
@@ -304,7 +304,7 @@
             right: -600px;
             z-index: 1;
             top: 25px;
-            @include media($mobile-only){
+            @media (max-width: $mobile-only){
                 top:14px;
             }
             @include theme-amg() {
@@ -315,21 +315,21 @@
             color: $white;
             padding:0;
         }
-        @include media($tablet){
+        @media (min-width:$tablet){
             @include hero-cn-font(36px, 50px);
             transform-origin: center;
             max-width: 940px;
             margin:auto;
             width: auto;
         }
-        @include media($mobile-only){
+        @media (max-width: $mobile-only){
             @include hero-cn-font(24px, 28px);
             transform-origin: center;
             width: auto;
         }
     }
 
-    
+
 }
 
 @mixin section-header-default-original{
@@ -338,11 +338,11 @@
         color: $white;
     }
 
-    @include media($tablet){
+    @media (min-width:$tablet){
         @include font-cn-default(36px, 50px);
         font-weight: normal;
     }
-    @include media($mobile-only){
+    @media (max-width:$mobile-only){
         @include font-cn-default(24px, 28px);
         font-weight: normal;
         letter-spacing: 0.6;
@@ -354,11 +354,11 @@
         color: $white;
     }
 
-    @include media($tablet){
+    @media (min-width:$tablet){
         @include hero-cn-font(36px, 50px);
         font-weight: normal;
     }
-    @include media($mobile-only){
+    @media (max-width:$mobile-only){
         @include hero-cn-font(24px, 28px);
         font-weight: normal;
         letter-spacing: 0.6;
@@ -586,7 +586,7 @@
      }
 }
 
-@mixin engine-numeric {    
+@mixin engine-numeric {
     @include media($mobile-only) {
         @include font-heading(24px,1);
     }

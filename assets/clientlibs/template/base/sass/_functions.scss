@@ -92,3 +92,8 @@
     font-weight: normal;
     font-size: $size;
 }
+
+@mixin form-item() {
+    display: block;
+    margin: $space-4 0px;
+}

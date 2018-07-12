@@ -183,6 +183,11 @@
         height: 50px;
         line-height: 50px;
     }
+    &:hover,
+    &:focus {
+        animation: none;
+        background-color: $denim-model;
+    }
 }
 }
 

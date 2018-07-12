@@ -1,14 +1,12 @@
 import Promise from 'promise-polyfill';
-import demoComponent from '../../../component/demo/es6/demo';
-import breakpoints from '../../../component/breakPoint/es6/breakPoint';
+import showBreakPoint from '../../../component/showBreakPoint/es6/showBreakPoint';
 
 if (!window.Promise) {
   window.Promise = Promise;
 }
 
 const components = {
-  'demo-component': demoComponent,
-  'breakPoint': breakpoints
+  'breakPoint': showBreakPoint
 };
 
 $(() => {

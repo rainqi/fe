@@ -1,0 +1,13 @@
+@mixin variant-ondisplay() {
+    // theme for ondisplay variant
+    body[data-variant="ondisplay"] & {
+        @content
+    }
+};
+
+@mixin variant-ondisplay-amg() {
+    // theme for ondisplay variant
+    body[data-variant="ondisplay"][data-theme="amg"] & {
+        @content
+    }
+};

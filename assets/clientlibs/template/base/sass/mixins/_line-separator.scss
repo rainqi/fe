@@ -1,0 +1,7 @@
+@mixin line-separator($color: $silver) {
+    border: none;
+    border-top: 1px solid $color;
+    margin-left: 0;
+    text-align: left;
+    width: $space-6;
+}

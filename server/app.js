@@ -24,7 +24,7 @@ routes(app);
 
 app.use("/", express.static("../assets"));
 
-const APP_PORT = process.env.APP_PORT || 2899;
+const APP_PORT = process.env.APP_PORT || 5899;
 
 app.listen(APP_PORT, () => {
     console.log(`Listening on http:/localhost:${APP_PORT}`);

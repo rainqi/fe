@@ -1,0 +1,24 @@
+@mixin textbutton($color: $mine-shaft) {
+    .text-btn {
+        @include feature-cn-font(13px, 18px);
+        color: $color;
+        font-weight: 500;
+        padding-bottom: 4px;
+        border-bottom: none;
+        &::before {
+            color: $color;
+            position: relative;
+            @include icon($icon-text-button-arrow);
+            padding-right: 6px;
+            font-size: 12px;
+            top:1px;
+        }
+        
+        &:hover {
+            color: $global-blue;
+            &::before {
+                color: $global-blue;
+            }
+        }
+    }
+}

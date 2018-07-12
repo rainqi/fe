@@ -1,0 +1,20 @@
+@mixin dropdown-caret($size: 8px, $top: 50%, $right: -15px) {
+    &:after {
+        @include icon($icon-caret-down);
+        position: absolute;
+        font-size: $size;
+        top: $top;
+        right: $right;
+        line-height: 0.9;
+    }
+
+    &[data-open="true"]:after {
+        transition: $menu-transition-open;
+        transform: rotate(180deg);
+    }
+
+    &[data-open="false"]:after {
+        transition: $menu-transition-open;
+        transform: rotate(0deg);
+    }
+}

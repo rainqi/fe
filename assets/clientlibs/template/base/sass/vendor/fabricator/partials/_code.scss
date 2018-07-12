@@ -31,6 +31,10 @@ pre[class*='language-'] {
 	direction: ltr;
 	cursor: text;
 	letter-spacing: normal;
+  white-space: pre-wrap;
+	@media (max-width: $screen-mobile-max) {
+		tab-size: 0;
+	}
 }
 
 // code blocks

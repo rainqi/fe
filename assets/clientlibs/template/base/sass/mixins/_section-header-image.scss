@@ -1,0 +1,15 @@
+@mixin section-header-image() {
+    $width-small: 768px;
+    $width-large: 1440px;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+
+    @include media($width-large) {
+        left: auto;
+        transform: none;
+        width: 100%;
+    }
+}

@@ -7,24 +7,37 @@
 	flex-grow: 1;
 	flex-shrink: 0;
 	flex-basis: 100%;
-	border-top-width: 8em;
-	border-top-style: solid;
-	border-bottom-width: 0;
-	border-bottom-style: solid;
 	background-color: #fff;
 	font-weight: 700;
 	font-size: 0.75em;
 	padding: 1em;
 	margin-bottom: 2em;
   box-sizing: border-box;
+	width: 14rem;
+	max-width: 14rem;
+	min-width: 14rem;
 
 	@media (min-width: 60em) {
-		flex-basis: 13em;
+		flex-basis: 0em;
 	}
-
-	.f-color-chip__color {
-		background-color: #fff;
+	&__square {
+		width: 100%;
+		height: 6rem;
+		margin-bottom: 1rem;
+	}
+	&__name {
+		font-size: 1em;
+		line-height: 1.5em;
+	}
+	&__border-gray {
+		border: 1px solid $dusty-gray;
+	}
+	&__color {
+		font-size: 1em;
+		line-height: 1.5em;
+		background-color: $color-white;
 		content: attr(data-color);
 		font-weight: 400;
+		text-transform: uppercase;
 	}
 }

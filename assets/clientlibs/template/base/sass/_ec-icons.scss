@@ -1,0 +1,180 @@
+@font-face {
+  font-family: 'ec-icons';
+  src: url($root + '/fonts/icon/icon-ec.eot');
+  src: url($root + '/fonts/icon/icon-ec.eot?#iefix') format('embedded-opentype'), url($root + '/fonts/icon/icon-ec.ttf') format('truetype'), url($root + '/fonts/icon/icon-ec.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ec-"], [class*=" ec-"] {
+  display: inline-block;
+  position: relative;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ec-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  margin-right: 10px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ec-alert:before {
+	content: "\F101"
+}
+
+.ec-arrow-down:before {
+	content: "\F102"
+}
+
+.ec-arrow:before {
+	content: "\F103"
+}
+
+.ec-booking-car:before {
+	content: "\F104"
+}
+
+.ec-caret-down:before {
+	content: "\F105"
+}
+
+.ec-caret-right:before {
+	content: "\F106"
+}
+
+.ec-cart:before {
+	content: "\F107"
+}
+
+.ec-check_circle:before {
+	content: "\F108"
+}
+
+.ec-checked:before {
+	content: "\F109"
+}
+
+.ec-close:before {
+	content: "\F10A"
+}
+
+.ec-cross:before {
+	content: "\F10B"
+}
+
+.ec-customer-service:before {
+	content: "\F10C"
+}
+
+.ec-delete:before {
+	content: "\F10D"
+}
+
+.ec-drag-bothway:before {
+	content: "\F10E"
+}
+
+.ec-earphone:before {
+	content: "\F10F"
+}
+
+.ec-edit:before {
+	content: "\F110"
+}
+
+.ec-financial-solution:before {
+	content: "\F111"
+}
+
+.ec-gyro:before {
+	content: "\F112"
+}
+
+.ec-id-card:before {
+	content: "\F113"
+}
+
+.ec-info-outline:before {
+	content: "\F114"
+}
+
+.ec-info:before {
+	content: "\F115"
+}
+
+.ec-left-arrow:before {
+	content: "\F116"
+}
+
+.ec-location:before {
+	content: "\F117"
+}
+
+.ec-lock:before {
+	content: "\F118"
+}
+
+.ec-marketing-campaign:before {
+	content: "\F119"
+}
+
+.ec-menu:before {
+	content: "\F11A"
+}
+
+.ec-person:before {
+	content: "\F11B"
+}
+
+.ec-play:before {
+	content: "\F11C"
+}
+
+.ec-portrait:before {
+	content: "\F11D"
+}
+
+.ec-right-arrow:before {
+	content: "\F11E"
+}
+
+.ec-rotate:before {
+	content: "\F11F"
+}
+
+.ec-shutdown:before {
+	content: "\F120"
+}
+
+.ec-slide-down-arrow:before {
+	content: "\F121"
+}
+
+.ec-star:before {
+	content: "\F122"
+}
+
+.ec-tel:before {
+	content: "\F123"
+}
+
+.ec-top:before {
+	content: "\F124"
+}
+
+.ec-triangle-down:before {
+	content: "\F125"
+}
+
+.ec-user:before {
+	content: "\F126"
+}
+
+.ec-vr:before {
+	content: "\F127"
+}

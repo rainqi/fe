@@ -4,7 +4,7 @@ html {
 	&.f-menu-active {
 		overflow: hidden;
 
-		@media (min-width: $screen-desktop) {
+		@media (min-width: $screen-tablet) {
 			overflow: auto;
 		}
 	}
@@ -19,14 +19,14 @@ body {
 		height: 100%;
 		overflow: hidden;
 
-		@media (min-width: $screen-desktop) {
+		@media (min-width: $screen-tablet) {
 			overflow: auto;
 			height: auto;
 		}
 	}
 }
 
-a {
+.link-blue {
     @include link-blue;
 }
 
@@ -58,7 +58,7 @@ a {
 	.f-menu-active & {
 		transform: translate($menu-width, 0);
 
-		@media (min-width: $screen-desktop) {
+		@media (min-width: $screen-tablet) {
 			margin-left: $menu-width;
 			transform: translate(0, 0);
 		}

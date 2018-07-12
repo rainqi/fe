@@ -1,0 +1,17 @@
+@mixin theme-amg() {
+    body[data-theme="amg"] & {
+        @content;
+    }
+}
+
+@mixin theme-csr() {
+    body[data-theme="csr"] & {
+        @content;
+    }
+}
+
+@mixin theme-detail() {
+    body[data-theme="detail"] & {
+        @content;
+    }
+}

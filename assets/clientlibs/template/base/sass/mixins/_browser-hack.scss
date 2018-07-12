@@ -1,0 +1,34 @@
+@mixin css-hack($browser: "ie11") {
+    @if($browser == "ie11") {
+        //IE11 ONLY
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            @content;
+        }
+    }
+    @if($browser == "edge") {
+        //EDGE ONLY
+        @supports (-ms-ime-align:auto) {
+            @content;
+        }
+    }
+}
+
+@mixin ipad($orientation: "portrait") {
+    @if($orientation == "portrait") {
+        @media only screen
+        and (min-device-width : 768px) 
+        and (max-device-width : 1024px) 
+        and (orientation : portrait) {
+            @content;
+        }
+    }
+
+    @if($orientation == "landscape") {
+        @media only screen 
+        and (min-device-width : 768px) 
+        and (max-device-width : 1024px) 
+        and (orientation : landscape) {
+            @content;
+        }
+    }
+}

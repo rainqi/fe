@@ -1,0 +1,602 @@
+@mixin font-output($family, $weight, $size, $lineHeight, $style: normal) {
+    @if not $lineHeight and not $size {
+        //Not sure we need family here, as all fonts appear the same typeface.
+        //No harm should come, if you wish to uncomment:
+        //font-family: $family;
+        font-weight: $weight;
+        @if $style not normal {
+            font-style: $style;
+        }
+    } @else if not $lineHeight {
+        font: $style $weight $size $family;
+    } @else {
+        font: $style $weight unquote("#{$size}/#{$lineHeight}") $family;
+    }
+}
+
+@mixin font-regular($size: null, $lineHeight: null) {
+    $weight: $font-weight-regular;
+    @include font-output($default-font-family, $weight, $size, $lineHeight);
+}
+
+@mixin font-regular-bold($size: null, $lineHeight: null) {
+    $weight: $font-weight-bold;
+    @include font-output($default-font-family, $weight, $size, $lineHeight);
+}
+
+@mixin font-regular-italic($size: null, $lineHeight: null) {
+    $weight: $font-weight-regular;
+    @include font-output($default-font-family, $weight, $size, $lineHeight, italic);
+}
+
+@mixin font-medium($size: null, $lineHeight: null) {
+    $weight: $font-weight-medium;
+    @include font-output($default-font-family, $weight, $size, $lineHeight);
+}
+
+@mixin font-medium-italic($size: null, $lineHeight: null) {
+    $weight: $font-weight-medium;
+    @include font-output($default-font-family, $weight, $size, $lineHeight, italic);
+}
+
+@mixin font-semibold($size: null, $lineHeight: null) {
+    $weight: $font-weight-semibold;
+    @include font-output($default-font-family, $weight, $size, $lineHeight);
+}
+
+@mixin font-bold($size: null, $lineHeight: null) {
+    $weight: $font-weight-bold;
+    @include font-output($default-font-family, $weight, $size, $lineHeight);
+}
+
+@mixin font-monotype($size, $lineHeight: null) {
+    $weight: $font-weight-regular;
+    @include font-output($monotype-font-family, $weight, $size, $lineHeight);
+}
+
+@mixin font-heading($size: null, $lineHeight: null, $weight: $font-weight-regular, $style: normal) {
+    @include font-output($secondary-font-name, $weight, $size, $lineHeight, $style);
+}
+
+@mixin font-corpos-bold($size, $lineHeight) {
+    $weight: $font-weight-bold;
+    @include font-output($tertiary-font-name, $weight, $size, $lineHeight);
+}
+
+@mixin font-corpos-bold-italic($size, $lineHeight) {
+    $weight: $font-weight-bold;
+    @include font-output($tertiary-font-name, $weight, $size, $lineHeight, italic);
+}
+
+@mixin font-corpos-regular($size, $lineHeight) {
+    $weight: $font-weight-regular;
+    @include font-output($tertiary-font-name, $weight, $size, $lineHeight)
+}
+
+@mixin font-corpos-italic($size, $lineHeight) {
+    $weight: $font-weight-regular;
+    @include font-output($tertiary-font-name, $weight, $size, $lineHeight, italic);
+}
+
+@mixin font-cn-default($size, $lineHeight) {
+    $weight: $font-weight-medium;
+    @include font-output($default-cn-font-family, $weight, $size, $lineHeight, normal);
+}
+
+@mixin brand-font-cn-default($size, $lineHeight) {
+    $weight: $font-weight-bold;
+    @include font-output($default-cn-font-family, $weight, $size, $lineHeight, normal);
+}
+
+@mixin feature-cn-font($size, $lineHeight) {
+    $weight: $font-weight-regular;
+    @include font-output($default-cn-font-family, $weight, $size, $lineHeight, normal);
+}
+
+@mixin hero-cn-font($size, $lineHeight) {
+    @include media($tablet){
+        $weight: $font-weight-regular;
+        @include font-output($brand-cn-font-family, $weight, $size, $lineHeight, normal);
+    }
+    @include media($mobile-only){
+        $weight: $font-weight-regular;
+        @include font-output($default-cn-font-family, $weight, $size, $lineHeight, normal);
+    }
+    transform: scaleX(.7);
+    transform-origin: left;
+    width: 142.857143%;
+}
+
+
+@mixin main-heading {
+    @include font-heading(30px, 1);
+
+    @media screen and (min-width: $xlarge),
+    only print  {
+        @include font-heading(40px, 1);
+    }
+}
+
+@mixin heading-reg {
+    @include font-heading(30px, 1);
+
+    @media screen and (min-width: $xlarge),
+    only print  {
+        @include font-heading(36px, 1);
+    }
+}
+
+@mixin subhead-reg {
+    @include font-heading(28px, 34/28);
+
+    @media screen and (min-width: $xlarge),
+    only print  {
+        @include font-heading(30px, 38/30);
+    }
+}
+
+@mixin featured-heading {
+    @include font-heading(32px, 1);
+}
+
+@mixin subhead-italic {
+    @include font-heading(28px, 34/28, $font-weight-regular, italic);
+
+    @media screen and (min-width: $xlarge),
+    only print  {
+        @include font-heading(30px, 38/30, $font-weight-regular, italic);
+    }
+}
+
+@mixin section-reg {
+    @include font-heading(24px, 28/24);
+
+    @media only print {
+        @include subhead-reg;
+    }
+}
+
+@mixin section-italic {
+    @include font-heading(24px, 28/24, $font-weight-regular, italic);
+
+    @media only print {
+        @include font-heading(30px, 38/30, $font-weight-regular, italic);
+    }
+}
+
+@mixin subsection-reg {
+    @include font-heading(18px, 1);
+
+    @media only print {
+        @include font-heading(24px, 28/24);
+    }
+}
+
+@mixin subsection-italic {
+    @include font-heading(18px, 1, $font-weight-regular, italic);
+
+    @media only print {
+        @include section-italic;
+    }
+}
+
+@mixin small-subhead-reg {
+    @include font-heading(16px, 1);
+
+    @media only print {
+        @include section-reg;
+    }
+}
+
+@mixin accent-reg {
+    @include font-corpos-regular(26px, 32/26);
+}
+
+@mixin accent-bold {
+    @include font-corpos-bold(26px, 32/26);
+}
+
+@mixin call-out-text-reg {
+    @include font-corpos-regular(18px, 24/18);
+}
+
+@mixin call-out-text-italic {
+    @include font-corpos-italic(18px, 24/18);
+}
+
+@mixin call-out-text-bold {
+    @include font-corpos-bold(18px, 24/18);
+}
+
+@mixin call-out-text-bold-italic {
+    @include font-corpos-bold-italic(18px, 24/18);
+}
+
+@mixin call-out-text-small {
+    @include font-corpos-regular(14px, 20/14);
+}
+
+@mixin featured-copy-reg {
+    @include font-regular(14px, 21/14);
+}
+
+@mixin featured-copy-bold {
+    @include font-regular-bold(14px, 1.5);
+}
+
+@mixin featured-copy-italic {
+    @include font-regular-italic(14px, 21/14);
+}
+
+@mixin highlight-copy-reg {
+    @include font-regular(13px, 20/13);
+
+    @media only print {
+        @include featured-copy-reg;
+    }
+}
+
+@mixin highlight-copy-bold {
+    @include font-regular-bold(13px, 20/13);
+
+    @media only print {
+        @include featured-copy-bold;
+    }
+}
+
+@mixin highlight-copy-italic {
+    @include font-regular-italic(13px, 20/13);
+
+    @media only print {
+        @include featured-copy-italic;
+    }
+}
+
+@mixin base-cn-font {
+    @include font-cn-default(14px, 30/14);
+}
+
+@mixin brand-cn-font {
+    @include brand-font-cn-default(45px, 1);
+}
+
+@mixin feature-cn-copy {
+    @include feature-cn-font(20px, 35/20);
+}
+
+@mixin base-cn-sm-font {
+    @include font-cn-default(14px, 24/13);
+}
+
+@mixin section-header{
+    color: $dove-gray;
+    position: relative;
+    overflow: hidden;
+    max-width: 940px;
+    @include theme-amg() {
+        color: $white;
+    }
+
+    span{
+        display: inline-block;
+        padding:0 14px;
+        position: relative;
+        z-index:2;
+        &::before{
+            content:'';
+            width: 600px;
+            height: 1px;
+            background-color:$mercury-sand;
+            position: absolute;
+            left: -600px;
+            z-index: 1;
+            top: 25px;
+            @include media($mobile-only){
+                top:14px;
+            }
+        }
+        &::after{
+            content:'';
+            width: 600px;
+            height: 1px;
+            background-color:$mercury-sand;
+            position: absolute;
+            right: -600px;
+            z-index: 1;
+            top: 25px;
+            @include media($mobile-only){
+                top:14px;
+            }
+            @include theme-amg() {
+                display:none;
+            }
+        }
+        @include theme-amg() {
+            color: $white;
+            padding:0;
+        }
+        @include media($tablet){
+            @include hero-cn-font(36px, 50px);
+            transform-origin: center;
+            max-width: 940px;
+            margin:auto;
+            width: auto;
+        }
+        @include media($mobile-only){
+            @include hero-cn-font(24px, 28px);
+            transform-origin: center;
+            width: auto;
+        }
+    }
+
+    
+}
+
+@mixin section-header-default-original{
+    color: $mine-shaft;
+    @include theme-amg() {
+        color: $white;
+    }
+
+    @include media($tablet){
+        @include font-cn-default(36px, 50px);
+        font-weight: normal;
+    }
+    @include media($mobile-only){
+        @include font-cn-default(24px, 28px);
+        font-weight: normal;
+        letter-spacing: 0.6;
+    }
+}
+@mixin section-header-default{
+    color: $mine-shaft;
+    @include theme-amg() {
+        color: $white;
+    }
+
+    @include media($tablet){
+        @include hero-cn-font(36px, 50px);
+        font-weight: normal;
+    }
+    @include media($mobile-only){
+        @include hero-cn-font(24px, 28px);
+        font-weight: normal;
+        letter-spacing: 0.6;
+    }
+}
+@mixin section-header-default-hero{
+    color: $mine-shaft;
+    @include theme-amg() {
+        color: $white;
+    }
+
+    @include media($tablet){
+        @include hero-cn-font(44px, 50px);
+        font-weight: normal;
+    }
+    @include media($mobile-only){
+        @include hero-cn-font(24px, 28px);
+        font-weight: normal;
+        letter-spacing: 0.6;
+    }
+}
+@mixin hero-eyebrow-cn {
+    @include hero-cn-font(18px, 21/14);
+    @include media($tablet){
+        @include hero-cn-font(20px, 21/14);
+    }
+}
+@mixin hero-heading-cn {
+    @include hero-cn-font(30px, 1);
+
+    @media screen and (min-width: $xlarge),
+    only print  {
+        @include hero-cn-font(36px, 1);
+    }
+}
+
+@mixin car-feature-title{
+    color: $mine-shaft;
+    @include media($tablet){
+        @include hero-cn-font(28px,1);
+        font-weight: normal;
+    }
+    @include media($mobile-only){
+        @include hero-cn-font(20px, 1);
+        font-weight: normal;
+        letter-spacing: 0.6px;
+    }
+
+}
+@mixin car-feature-desc{
+    letter-spacing: 0.5px;
+    @include media($mobile-only){
+        @include feature-cn-font(13px, 1.85);
+        color: $mine-shaft;
+        font-weight: normal;
+        letter-spacing: 0.4px;
+        @include theme-amg() {
+            color: $white;
+        }
+    }
+    @include media($tablet){
+        @include feature-cn-font(14px, 1.75);
+        color: $mine-shaft;
+
+        @include theme-amg() {
+            color: $white;
+        }
+    }
+
+}
+@mixin car-feature-desc-white{
+    letter-spacing: 0.5px;
+    color: $white;
+    @include media($mobile-only){
+        @include feature-cn-font(13px, 1.85);
+        font-weight: normal;
+        letter-spacing: 0.4px;
+    }
+    @include media($tablet){
+        @include feature-cn-font(14px, 1.75);
+    }
+}
+@mixin footer-img-link{
+    @include feature-cn-font(16px, 1);
+    color: $dove-gray;
+}
+
+@mixin cn-hero {
+    @include font-heading(50px, 1);
+
+    @media screen and (min-width: $large),
+    only print {
+        @include font-heading(60px, 1);
+    }
+}
+
+/* change after client confirmation */
+
+@mixin brand-cn-sm-font {
+    @include brand-font-cn-default(45px, 1);
+}
+
+@mixin feature-cn-sm-copy {
+    @include feature-cn-font(20px, 1);
+}
+
+
+/* end change after client confirmation */
+
+@mixin copy-narrow-reg {
+    @include font-regular(12px, 18/12);
+
+    @media only print {
+        @include featured-copy-reg;
+    }
+}
+
+@mixin copy-narrow-bold {
+    @include font-regular-bold(12px, 18/12);
+
+    @media only print {
+        @include featured-copy-bold;
+    }
+}
+
+@mixin copy-narrow-italic {
+    @include font-regular-italic(12px, 18/12);
+
+    @media only print {
+        @include featured-copy-italic;
+    }
+}
+
+@mixin copy-wide-reg {
+    @include font-regular(12px, 22/12);
+
+    @include theme-amg() {
+         font-family: $primary-cn-font;
+    }
+
+    @media only print {
+        @include featured-copy-reg;
+    }
+}
+
+@mixin copy-wide-bold {
+    @include font-regular-bold(12px, 22/12);
+
+    @media only print {
+        @include featured-copy-bold;
+    }
+}
+
+@mixin copy-wide-italic {
+    @include font-regular-italic(12px, 22/12);
+
+    @media only print {
+        @include featured-copy-italic;
+    }
+}
+
+@mixin disclaimer {
+    @include font-regular(12px, 24/12);
+}
+
+@mixin uppercase {
+    text-transform: uppercase;
+}
+
+@mixin dropdown-sub-link {
+    @include featured-copy-reg;
+    @include media($tablet) {
+        @include copy-wide-bold;
+    }
+
+    @include media($desktop) {
+        @include highlight-copy-bold;
+    }
+}
+
+@mixin header-link{
+    @include feature-cn-font(14px, 48/14);
+}
+
+@mixin footer-title {
+    @include brand-font-cn-default(18px, 48/18);
+}
+
+@mixin footer-subtitle{
+    @include feature-cn-font(14px, 48/14);
+}
+@mixin footer-link {
+    @include font-regular(14px, 48/14);
+    @include media($tablet) {
+        @include font-regular(14px, 48/14);
+    }
+}
+
+@mixin legal-content{
+    @include feature-cn-font(12px, normal);
+}
+
+@mixin title-hero {
+    @include font-heading(50px, 1);
+
+    @media screen and (min-width: $large),
+    only print {
+        @include font-heading(60px, 1);
+    }
+}
+
+@mixin paragraph-wide-reg {
+    @include font-regular(15px, 20px);
+}
+
+@mixin csr-numeric {
+    $weight: $font-weight-regular;
+    @include font-output($secondary-font-family, normal, 14px, normal);
+    font-style: italic;
+}
+
+@mixin ie-effect-only() {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+       @content;
+     }
+}
+
+@mixin engine-numeric {    
+    @include media($mobile-only) {
+        @include font-heading(24px,1);
+    }
+    @include media($tablet) {
+        font-family: $brand-cn-font-family;
+        font-size: 24px;
+        line-height: normal;
+        transform: scaleX(.7);
+        transform-origin: left;
+        display: inline-block;
+        width: 142.857143%;
+    }
+}

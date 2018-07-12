@@ -1,0 +1,18 @@
+@mixin country($country) {
+    html[data-country=#{$country}] & {
+        @content
+    }
+}
+
+@mixin language($lang) {
+    html[data-language=#{$lang}] & {
+        @content
+    }
+}
+
+@mixin country-language($country, $lang) {
+    html[data-country=#{$country}][data-language=#{$lang}] & {
+        @content
+    }
+}
+

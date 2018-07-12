@@ -1,0 +1,19 @@
+@mixin section-header-video() {
+    $width-small: 768px;
+    $width-large: 1440px;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+
+    @include media($mobile-only){
+        display: none;
+    }
+
+    @include media($width-large) {
+        left: auto;
+        transform: none;
+        width: 100%;
+    }
+}

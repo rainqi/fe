@@ -1,0 +1,28 @@
+@mixin section-header-red-line() {
+    &::before {
+        content: "";
+        position: relative;
+        width: 1px;
+        height: 45px;
+        top:10px;
+        left:15px;
+        margin-right: 15px;
+        background-color: $guardsman-red;
+        display: block;
+        transform: rotate(15deg);
+        transform-origin: top;
+        display: inline-block;
+
+        @include media($mobile-only){
+            height: 25px;
+            top: 7px;
+            left:0;
+            margin-right: 5px;
+        }
+    }
+    span{
+        &::before{
+            display:none;
+        }
+    }
+}

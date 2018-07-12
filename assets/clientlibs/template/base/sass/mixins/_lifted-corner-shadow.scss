@@ -1,0 +1,27 @@
+@mixin lifted-corner-shadow() {
+    background: white;
+    border: 1px solid $mercury;
+    border-bottom: 1px solid $silver;
+    position: relative;
+
+    &:before, &:after {
+        bottom: 16px;
+        box-shadow: 0 15px 9px rgba(0, 0, 0, 0.42);
+        content: "";
+        height: 30px;
+        max-width: 400px;
+        position: absolute;
+        width: 70%;
+        z-index: -2;
+    }
+
+    &:before {
+        left: 4px;
+        transform: skew(-2deg) rotate(-3deg);
+    }
+
+    &:after {
+        right: 4px;
+        transform: skew(2deg) rotate(3deg);
+    }
+}

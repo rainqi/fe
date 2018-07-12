@@ -1,0 +1,45 @@
+$font-weight-light: 200;
+$font-weight-book: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+/*
+@font-face {
+    font-family: 'HYZhongSongJBT';
+    src:  url('#{$fonts-path}/HYZhongSongJBT.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+*/
+$primary-font-name : 'Arial';
+
+// $primary-cn-font : 'PingFang SC', 'SimHei';
+$primary-cn-font : 'PingFang SC','Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC','Microsoft YaHei', 'SimHei', Helvetica ,Arial;
+// $hero-cn-font: 'HYZhongSongJBT'; 
+$hero-cn-font: 'SimSun'; 
+
+$secondary-font-name: 'corporateacondpro';
+$secondary-fonts: medium regular;
+$secondary-fonts-italic: lightitalic mediumitalic regularitalic;
+$secondary-font-weights: $font-weight-medium $font-weight-regular;
+$secondary-font-weights-italic: $font-weight-light $font-weight-medium $font-weight-regular;
+$secondary-font-formats: eot svg ttf woff;
+
+$tertiary-font-name: 'corpos';
+$tertiary-fonts: regular bold;
+$tertiary-fonts-italic: italic bolditalic;
+$tertiary-font-weights: $font-weight-regular $font-weight-bold;
+$tertiary-font-weights-italic: $font-weight-regular $font-weight-bold;
+$tertiary-font-formats: eot svg ttf woff;
+
+$default-font-family: $primary-font-name, sans-serif;
+$secondary-font-family: $secondary-font-name, Georgia, serif;
+$tertiary-font-family: $tertiary-font-name, serif;
+
+$default-cn-font-family : $primary-cn-font, serif;
+
+$brand-cn-font-family: $hero-cn-font, serif;
+
+

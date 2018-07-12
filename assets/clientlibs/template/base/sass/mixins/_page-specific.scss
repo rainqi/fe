@@ -1,0 +1,5 @@
+@mixin page-specific($page-class) {
+    body.#{$page-class} & {
+        @content
+    }
+}

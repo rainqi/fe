@@ -1,16 +1,23 @@
 /* global variable */
 @import 'variables';
+@import 'config/index';
 
 /* global mixin and function */
 @import 'functions';
+@import 'mixins/index';
 
 /* third party */
+@import 'vendor/bootstrap/bootstrap-grid';
 @import 'vendor/fabricator/fabricator';
 
 /* module */
 @import 'global';
-@import 'icons';
+@import 'ec-icons';
+@import 'cn-icons';
 @import 'reset';
+@import 'button';
+@import 'cta';
 
 /* css components */
-@import '../../../component/demo/sass/demo';
+@import '../../../component/styleGuide/sass/sg';
+@import '../../../component/showBreakPoint/sass/showBreakPoint';

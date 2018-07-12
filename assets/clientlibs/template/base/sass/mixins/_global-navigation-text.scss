@@ -1,0 +1,23 @@
+@mixin global-navigation-text-mobile() {
+    // @include section-header;
+    border-bottom: 1px solid $line-gray;
+    padding: 5px 0;
+    font-weight: normal;
+    a {
+        color: $blitz;
+        font-size: 13px;
+        display: block;
+    }
+
+    &::after{
+        content: "";
+        font-family: cn-icons;
+        font-weight: normal;
+        font-size: 13px;
+        position: absolute;
+        top: 5px;
+        right: 4px;
+        transform: rotate(-90deg);
+        color: $global-blue;
+    }
+}

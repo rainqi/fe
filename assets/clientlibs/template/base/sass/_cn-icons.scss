@@ -1,0 +1,256 @@
+@font-face {
+  font-family: 'cn-icons';
+  src: url($root + '/fonts/icon/cn-icons.eot');
+  src: url($root + '/fonts/icon/cn-icons.eot?#iefix') format('embedded-opentype'), url($root + '/fonts/icon/cn-icons.ttf') format('truetype'), url($root + '/fonts/icon/cn-icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  display: inline-block;
+  position: relative;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'cn-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  margin-right: 10px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-expand:before {
+	content: "\e93d"
+}
+
+.icon-minimize:before {
+	content: "\e93e"
+}
+
+.icon-about:before {
+	content: "\e939"
+}
+
+.icon-community:before {
+	content: "\e93a"
+}
+
+.icon-other-sites:before {
+	content: "\e93b"
+}
+
+.icon-press-release:before {
+	content: "\e93c"
+}
+
+.icon-dragtorotate:before {
+	content: "\e936"
+}
+
+.icon-zoomin:before {
+	content: "\e937"
+}
+
+.icon-zoomout:before {
+	content: "\e938"
+}
+
+.icon-careers:before {
+	content: "\e935"
+}
+
+.icon-check:before {
+	content: "\e934"
+}
+
+.icon-warning:before {
+	content: "\e932"
+}
+
+.icon-mb-dealer-location:before {
+	content: "\e92d"
+}
+
+.icon-mb-collision-center:before {
+	content: "\e92f"
+}
+
+.icon-search:before {
+	content: "\e909"
+}
+
+.icon-car-rear:before {
+	content: "\e92e"
+}
+
+.icon-caret-right-amg:before {
+	content: "\e92b"
+}
+
+.icon-acceleration:before {
+	content: "\e900"
+}
+
+.icon-arrow-down-square:before {
+	content: "\e913"
+}
+
+.icon-arrow-left-square:before {
+	content: "\e915"
+}
+
+.icon-arrow-right-square:before {
+	content: "\e91a"
+}
+
+.icon-arrow-up-square:before {
+	content: "\e91b"
+}
+
+.icon-calculator:before {
+	content: "\e91c"
+}
+
+.icon-download-arrow:before {
+	content: "\e91d"
+}
+
+.icon-exit:before {
+	content: "\e91e"
+}
+
+.icon-gears:before {
+	content: "\e91f"
+}
+
+.icon-horsepower:before {
+	content: "\e920"
+}
+
+.icon-hybrid:before {
+	content: "\e921"
+}
+
+.icon-minus:before {
+	content: "\e922"
+}
+
+.icon-plus:before {
+	content: "\e923"
+}
+
+.icon-rain {
+	content: "\e924"
+}
+
+.icon-request_a_test_drive:before {
+	content: "\e925"
+}
+
+.icon-solid-circle:before {
+	content: "\e926"
+}
+
+.icon-steering-wheel:before {
+	content: "\e927"
+}
+
+.icon-sun:before {
+	content: "\e928"
+}
+
+.icon-torque:before {
+	content: "\e929"
+}
+
+.icon-towing:before {
+	content: "\e92a"
+}
+
+.icon-compare:before {
+	content: "\e916"
+}
+
+.icon-download:before {
+	content: "\e917"
+}
+
+.icon-special-offers:before {
+	content: "\e918"
+}
+
+.icon-view-inventory:before {
+	content: "\e919"
+}
+
+.icon-trade_in_value:before {
+	content: "\e901"
+}
+
+.icon-apply_for_credit:before {
+	content: "\e912"
+}
+
+.icon-model-chooser:before {
+	content: "\e914"
+}
+
+.icon-caret-down-thin:before {
+	content: "\e902"
+}
+
+.icon-caret-down:before {
+	content: "\e903"
+}
+
+.icon-caret-left-thin:before {
+	content: "\e904"
+}
+
+.icon-caret-right-thin:before {
+	content: "\e905"
+}
+
+.icon-caret-right:before {
+	content: "\e906"
+}
+
+.icon-caret-up-thin:before {
+	content: "\e907"
+}
+
+.icon-caret-up:before {
+	content: "\e908"
+}
+
+.icon-pin:before {
+	content: "\e90a"
+}
+
+.icon-AMG_logo:before {
+	content: "\e910"
+}
+
+.icon-preferred-dealer:before {
+	content: "\e933"
+}
+
+.icon-text-button-arrow:before {
+	content: "\e93f"
+}
+
+.icon-wechat:before {
+	content: "\e90b"
+}
+
+.icon-weibo:before {
+	content: "\e90c"
+}
+
+.icon-arrow-action:before {
+	content: "\e901"
+}

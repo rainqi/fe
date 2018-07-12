@@ -54,12 +54,16 @@
 	vertical-align: middle;
 }
 
-.f-item-heading {
+.f-item-heading, .f-item-pre-heading  {
 	margin-top: 0;
 	margin-bottom: 0;
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 1;
+}
+
+.f-item-pre-heading {
+	margin: 1rem 0;
 }
 
 
@@ -91,5 +95,5 @@
 }
 
 .f-item-notes {
-	font-size: 0.875rem;
+	font-size: 1rem;
 }

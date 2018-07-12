@@ -38,3 +38,57 @@
         z-index: 910;
     }
 }
+
+@mixin textbutton($color: $mine-shaft) {
+    .text-btn {
+        @include feature-cn-font(13px, 18px);
+        color: $color;
+        font-weight: 500;
+        padding-bottom: 4px;
+        border-bottom: none;
+        &::before {
+            color: $color;
+            position: relative;
+            @include icon('\e93f');
+            padding-right: 6px;
+            font-size: 12px;
+            top:1px;
+        }
+
+        &:hover {
+            color: $global-blue;
+            &::before {
+                color: $global-blue;
+            }
+        }
+    }
+}
+
+
+@mixin font-output($family, $weight, $size, $lineHeight, $style: normal) {
+    @if not $lineHeight and not $size {
+        //Not sure we need family here, as all fonts appear the same typeface.
+        //No harm should come, if you wish to uncomment:
+        //font-family: $family;
+        font-weight: $weight;
+        @if $style not normal {
+            font-style: $style;
+        }
+    } @else if not $lineHeight {
+        font: $style $weight $size $family;
+    } @else {
+        font: $style $weight unquote("#{$size}/#{$lineHeight}") $family;
+    }
+}
+
+@mixin feature-cn-font($size, $lineHeight) {
+    $weight: $font-weight-regular;
+    @include font-output($default-cn-font-family, $weight, $size, $lineHeight, normal);
+}
+
+@mixin icon($icon, $size: 100%) {
+    content: $icon;
+    font-family: "cn-icons";
+    font-weight: normal;
+    font-size: $size;
+}

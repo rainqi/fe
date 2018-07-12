@@ -1,0 +1,279 @@
+.button {
+    border-radius: 2px;
+    color: currentColor;
+    display: inline-block;
+    font-family: $default-font-family;
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+    line-height: 20px;
+    padding: $space $space-2;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+
+    &_primary {
+        background-color: $denim;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            background-color: $denim-model;
+        }
+
+        @include theme-amg() {
+            background-color: $guardsman-red;
+            color: $white;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                background-color: $dark-red;
+            }
+        }
+    }
+
+    &_secondary {
+        background-color: $dove-gray;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            background-color: $mine-shaft;
+        }
+
+        &_alt {
+            background-color: $tundora;
+            color: $white;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                background-color: $dusty-gray;
+            }
+        }
+    }
+
+    &_amg {
+        background-color: $guardsman-red;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            background-color: $dark-red;
+        }
+    }
+
+    &--wide {
+        padding-left: $space-6;
+        padding-right: $space-6;
+    }
+
+    &--full-width {
+      width: 100%;
+    }
+
+    &--large{
+      line-height: 30px;
+      padding: 10px 30px;
+      min-width: 200px;
+      @media (max-width: $screen-mobile-max) {
+        min-width: 335px;
+        line-height: 20px;
+      }
+    }
+    &--medium{
+      padding: 10px 30px;
+      line-height: 20px;
+      min-width: 160px;
+      @media (max-width: $screen-mobile-max) {
+        min-width: 335px;
+      }
+    }
+    &--small{
+      padding: 5px 10px;
+      min-width: 100px;
+      @media (max-width: $screen-mobile-max) {
+        min-width: 140px;
+        padding: 10px 10px;
+      }
+    }
+}
+
+.link {
+    color: currentColor;
+    text-decoration: none;
+
+    &_primary {
+        @include subsection-reg;
+        padding-left: $space-2;
+        position: relative;
+        @include theme-amg() {
+            font-style: italic;
+            padding-left: $space-3;
+        }
+
+        &:before {
+            color: $azure-radiance;
+            content: $icon-caret-right;
+            display: inline-block;
+            font-family: $icomoon-font-family;
+            font-size: 6px;
+            left: 0;
+            margin-top: 0;
+            position: absolute;
+            right: auto;
+            top: 50%;
+            transform: translateY(-50%);
+
+            @include theme-amg() {
+                color: $guardsman-red;
+                content: $icon-caret-right-amg;
+                font-size: 15px;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+
+            @include theme-amg() {
+                color: $cinnabar;
+            }
+        }
+
+        @include page-specific(corporate-page) {
+            @extend .link_plain-link;
+            font-family: $default-font-family;
+            font-size: 12px;
+            padding: 0;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+
+    &_secondary {
+        padding-left: $space-2;
+        position: relative;
+
+        &:before {
+            color: $azure-radiance;
+            content: $icon-caret-right;
+            display: inline-block;
+            font-family: $icomoon-font-family;
+            font-size: 6px;
+            left: 0;
+            margin-top: 0;
+            position: absolute;
+            right: auto;
+            top: 6px;
+            transform: translateY(-50%);
+
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+
+        @media only print {
+            @include copy-narrow-reg;
+        }
+    }
+
+    &_plain-link {
+        color: $denim;
+
+        @include theme-amg() {
+            color: $guardsman-red;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_in-text {
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_bold {
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_bold_sub {
+        font-size: 12px;
+        font-weight: $font-weight-bold;
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+            @include theme-amg() {
+                color: $guardsman-red;
+            }
+        }
+    }
+
+    &_icon_text {
+        @include section-reg;
+
+        [class^="icon-mb"], [class*=" icon-mb"] {
+            vertical-align: middle;
+        }
+
+        &:hover,
+        &:focus {
+            animation: none;
+            color: $azure-radiance;
+        }
+
+        @include theme-amg() {
+            color: $dusty-gray;
+
+            &:hover,
+            &:focus {
+                animation: none;
+                color: $guardsman-red;
+
+                [class^="icon-mb"], [class*=" icon-mb"] {
+                    color: $guardsman-red;
+                }
+            }
+        }
+    }
+}

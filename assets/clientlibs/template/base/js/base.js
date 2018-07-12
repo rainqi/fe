@@ -1,4 +1,4 @@
-/* Mon Jul 09 2018 15:38:09 GMT+0800 (CST) */
+/* Thu Jul 12 2018 13:19:14 GMT+0800 (CST) */
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 'use strict';
 
@@ -75,91 +75,16 @@ var breakPoint = function () {
 
 exports.default = breakPoint;
 
-},{"../../../../clientlibs/utilities/device":5}],2:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _device = require('../../../../clientlibs/utilities/device');
-
-var _utils = require('../../../../clientlibs/utilities/utils');
-
-var libs = _interopRequireWildcard(_utils);
-
-var _render = require('./render');
-
-var _render2 = _interopRequireDefault(_render);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var demo = function () {
-	function demo(el) {
-		_classCallCheck(this, demo);
-
-		this.props(el);
-		this.init();
-		this.events();
-	}
-
-	_createClass(demo, [{
-		key: 'props',
-		value: function props(el) {
-			this.el = $(el);
-			this.options = this.el.data();
-			this.classNames = {
-				demoClass: 'sg__header--large'
-			};
-		}
-	}, {
-		key: 'init',
-		value: function init() {
-			console.log('this is a initial function,', ' init()');
-		}
-	}, {
-		key: 'events',
-		value: function events() {
-			console.log('this is a event function,', ' events()');
-		}
-	}]);
-
-	return demo;
-}();
-
-exports.default = demo;
-
-},{"../../../../clientlibs/utilities/device":5,"../../../../clientlibs/utilities/utils":6,"./render":3}],3:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function (props) {
-  return "\n\n";
-};
-
-},{}],4:[function(require,module,exports){
+},{"../../../../clientlibs/utilities/device":3}],2:[function(require,module,exports){
 'use strict';
 
 var _promisePolyfill = require('promise-polyfill');
 
 var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
 
-var _demo = require('../../../component/demo/es6/demo');
+var _showBreakPoint = require('../../../component/showBreakPoint/es6/showBreakPoint');
 
-var _demo2 = _interopRequireDefault(_demo);
-
-var _breakPoint = require('../../../component/breakPoint/es6/breakPoint');
-
-var _breakPoint2 = _interopRequireDefault(_breakPoint);
+var _showBreakPoint2 = _interopRequireDefault(_showBreakPoint);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -168,8 +93,7 @@ if (!window.Promise) {
 }
 
 var components = {
-  'demo-component': _demo2.default,
-  'breakPoint': _breakPoint2.default
+  'breakPoint': _showBreakPoint2.default
 };
 
 $(function () {
@@ -183,7 +107,7 @@ $(function () {
   });
 });
 
-},{"../../../component/breakPoint/es6/breakPoint":1,"../../../component/demo/es6/demo":2,"promise-polyfill":8}],5:[function(require,module,exports){
+},{"../../../component/showBreakPoint/es6/showBreakPoint":1,"promise-polyfill":5}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -270,23 +194,7 @@ function getBody() {
   return $(isWebkit() ? 'html, body' : 'html');
 }
 
-},{}],6:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-exports.formatPriceWithCurrency = formatPriceWithCurrency;
-
-// Format Price with Currency
-
-function formatPriceWithCurrency(currency, price) {
-	var finalPrice = price || 0;
-	var finalCurrency = currency || '$';
-	return finalCurrency + finalPrice;
-}
-
-},{}],7:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -472,7 +380,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],8:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 (function (setImmediate){
 (function (root) {
 
@@ -709,7 +617,7 @@ process.umask = function() { return 0; };
 })(this);
 
 }).call(this,require("timers").setImmediate)
-},{"timers":9}],9:[function(require,module,exports){
+},{"timers":6}],6:[function(require,module,exports){
 (function (setImmediate,clearImmediate){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -788,4 +696,4 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":7,"timers":9}]},{},[4]);
+},{"process/browser.js":4,"timers":6}]},{},[2]);

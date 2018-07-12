@@ -1,0 +1,5 @@
+// Wrap text with this class to prevent word breaking
+// e.g; <span class="mb-title-non-breaking">Mercedes-Benz</span>
+.mb-title-non-breaking {
+    white-space: nowrap;
+}

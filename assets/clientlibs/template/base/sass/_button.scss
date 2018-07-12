@@ -1,0 +1,25 @@
+.home-btn {
+    width: 200px;
+    height: 50px;
+    background: $global-blue;
+    color: $white;
+    padding: 16px 0px;
+    @include feature-cn-font(13px, 18px);
+    font-weight: 500;
+
+    @media screen and (max-width: ($screen-tablet-max)) {
+        width: 140px;
+        height: 40px;
+        padding: 11px 0px;
+        font-weight: normal;
+    }
+
+    &--red {
+        background: $guardsman-red;
+    }
+}
+a.home-btn {
+    display: inline-block;
+    text-align: center;
+}
+@include textbutton();

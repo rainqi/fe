@@ -24,6 +24,10 @@ module.exports = (app) => {
     res.render('styles.html', parseQuery(req.query, {}));
   });
 
+  app.get('/form.html', (req, res) => {
+    res.render('form.html', parseQuery(req.query, {}));
+  });
+
 
 	/* dummy data routing */
 

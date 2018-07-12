@@ -1,0 +1,103 @@
+//http://chir.ag/projects/name-that-color
+//http://www.color-blindness.com/color-name-hue/ - if you get duplicates
+
+$pacific-blue: #00A6C9; //grid overlay
+$white: #fff;
+$white-light: #eee;
+$white-sand: #f6f6f6;
+$white-gray: #f8f8f8;
+$seashell: #f1f1f1;
+$seashell-gray: #f2f2f2;
+$seashell-dark: #f5f5f5;
+$mercury: #e3e3e3;
+$mercury-sand: #e1e1e1;
+$alto: #dadada;
+$silver: #c7c7c7;
+$silver-dark: #c9c9c9;
+$silver-chalice: #a1a1a1;
+$silver-lighter: #aaaaaa;
+$dusty-gray: #999;
+$dove-gray: #666;
+$scorpion: #565656;
+$tundora: #444;
+$mine-shaft: #333;
+$asphalt: #2a2a2a;
+$blitz: #222;
+$black: #010101;
+$dark-offer: #0e1015;
+$pure-black: #000000;
+$azure-radiance: #0090ff;
+$global-blue:#00ADEF;
+$denim:$global-blue;
+$daimler-blue: #003461;
+//$denim: #176db7;
+$dealer-blue: $global-blue;
+$cinnabar: #e23a39;
+$guardsman-red: #cc0000;
+$dark-red: #9f0002;
+$fruit-salad: #569C53;
+$line-gray:#ccc;
+$box-shadow: rgba(0, 0, 0, 0.13);
+$dark: #000;
+$dark-shallow: #0f1015;
+$alto: #d8d8d8;
+$denim-model:#176db7;
+$popup-mask: rgba(0, 0, 0, 0.38);
+$video-mask: rgba(0, 0, 0, 0.3);
+$transparent: transparent;
+$gainsboro: #e6e6e6;
+$white-smoke: #f2f2f2;
+$charcoal: #4a4a4a;
+$shady-lady: #979797;
+$silver-gray: #c4c4c4;
+$white-smoke-light: #f7f7f7;
+$while-transparent: rgba(255, 255, 255, 0.9);
+$black-russian: #18181d;
+$light-grey: #c7c7c7;
+$dark-grey: #9e9e9e;
+$fire-brick: #b81f23;
+$amg-grey: #464646;
+$amg-border: #24242b;
+$amg-brick: #d10411;
+$amg-section-bg: #191a1d;
+$dim-gray: #5f5f5f;
+$shady-gray: #6e6e6e;
+$error-bg-red: #ffe5e5;
+// color palette variables
+$palette-colors: (
+    'white': $white,
+    'white-light': $white-light,
+    'white-sand': $white-sand,
+    'white-gray': $white-gray,
+    'seashell': $seashell,
+    'seashell-gray': $seashell-gray,
+    'mercury': $mercury,
+    'mercury-sand': $mercury-sand,
+    'alto': $alto,
+    'silver': $silver,
+    'silver-dark': $silver-dark,
+    'silver-chalice': $silver-chalice,
+    'dusty-gray': $dusty-gray,
+    'dove-gray': $dove-gray,
+    'scorpion': $scorpion,
+    'tundora': $tundora,
+    'mine-shaft': $mine-shaft,
+    'asphalt': $asphalt,
+    'blitz': $blitz,
+    'black': $black,
+    'dark-offer': $dark-offer,
+    'azure-radiance': $azure-radiance,
+    'denim': $denim,
+    'dealer-blue': $dealer-blue,
+    'cinnabar': $cinnabar,
+    'guardsman-red': $guardsman-red,
+    'fruit-salad': $fruit-salad,
+    'box-shadow': $box-shadow,
+    'while-transparent': $while-transparent,
+    'video-mask': $video-mask,
+    'seashell-dark': $seashell-dark
+);
+
+@function color($color-name) {
+    @return map-get($palette-colors, $color-name);
+}

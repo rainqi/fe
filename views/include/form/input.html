@@ -14,9 +14,9 @@
                       <form class="test-drive__form">
                           <fieldset class="form-fieldset">
                               <legend class="form-fieldset__legend">欢迎您在线申请预约试驾，请在下方填写您的联络信息。</legend>
-                              <div class="form-fieldset__error form-fieldset__error--active"><a class="form-fieldset__error-item" href="#driveName">· 错误提示信息</a></div>
+                              <div class="form-fieldset__error form-fieldset__error--active"><a class="form-fieldset__error-item" href="#driveName">· 请输入正确的姓名（汉字或字母)</a><a class="form-fieldset__error-item" href="#driveCheck">· 请阅读并接受隐私条款</a></div>
                               <label for="driveName" class="form-input">
-                                  <input maxlength="30" id="driveName" name="familyName" type="text" class="form-input__input" placeholder="姓名" data-validate="isName" data-error="请输入正确的姓名（汉字或字母)">
+                                  <input maxlength="30" id="driveName" name="familyName" type="text" class="form-input__input form-fieldset__item-error" placeholder="姓名" data-validate="isName" data-error="请输入正确的姓名（汉字或字母)">
                               </label>
                               <div class="form-radio">
                                   <label class="form-radio__label" for="driveMale">
@@ -32,7 +32,7 @@
                                   <input maxlength="11" id="driveCell" name="mobilePhone" type="text" class="form-input__input" placeholder="手机号码" data-validate="isNotEmpty,isCell" data-error="请输入中国大陆手机号码（11位数字)">
                               </label>
                               <label for="driveCheck" class="form-checkbox">
-                                <input id="driveCheck" name="check" class="form-checkbox__input" type="checkbox" data-validate="isChecked" data-error="请阅读并接受隐私条款">
+                                <input id="driveCheck" name="check" class="form-checkbox__input form-fieldset__item-error" type="checkbox" data-validate="isChecked" data-error="请阅读并接受隐私条款">
                                 <span class="form-checkbox__fake"></span>
                                 <span class="form-checkbox__text">我仔细阅读了并接受所附的 <a href="#" class="test-drive__privacy">隐私条款</a></span>
                             </label>

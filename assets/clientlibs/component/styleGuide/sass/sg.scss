@@ -97,4 +97,39 @@
   &__bg--black {
     background-color: $mine-shaft;
   }
+  &__typography {
+    h1,h2,h3,h4,h5,h6 {
+      color: $mine-shaft;
+      font-family: 'SimSun', serif;
+      font-weight: 400;
+    }
+    h1 {
+      font-size: 42px;
+      font-weight: 42px;
+    }
+    h2 {
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 36px;
+      font-family: 'SimSun', serif;
+    }
+    h3 {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 28px;
+      font-family: 'SimSun', serif;
+    }
+    p {
+      font-size: 14px;
+      line-height: 28px;
+      font-weight: 400;
+      color: $mine-shaft;
+      &.sg__disclaimer {
+        font-size: 12px;
+        line-height: 24px;
+        font-weight: 400;
+        color: $dusty-gray;
+      }
+    }
+  }
 }

@@ -156,6 +156,9 @@
             line-height: 16px;
         }
     }
+    .form-fieldset__item-error + .form-checkbox__fake {
+      border-color: $dark-red !important;
+    }
 
     .form-fieldset__item-error + &__fake {
         border-color: $dark-red !important;

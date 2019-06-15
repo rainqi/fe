@@ -6,6 +6,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "superagent": ">=3.7.0",
     "babel-eslint": "^8.0.3",
     "babel-loader": "^6.4.1",
     "babel-polyfill": "^6.23.0",
